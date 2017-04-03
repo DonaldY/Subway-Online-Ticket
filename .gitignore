@@ -1,0 +1,10 @@
+# Windows:
+Thumbs.db
+ehthumbs.db
+Desktop.ini
+
+# IDEA:
+*.sql
+*.iml
+.idea
+out

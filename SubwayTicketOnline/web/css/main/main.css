@@ -1,0 +1,216 @@
+
+.dropdown-menu li{
+    display: block;
+    padding: 3px 20px;
+    clear: both;
+    font-weight: 400;
+    line-height: 1.42857143;
+    color: #333;
+    white-space: nowrap;
+}
+
+/*表格背景*/
+.m-search-box {
+    margin-top: 12px;
+    margin-left: -24.5px;
+    width: 1177px;
+    height: 215px;
+    background: rgba(0,0,0,0.65);
+    border-radius: 4px;
+    zoom: 1;
+    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr="#A6000000",endColorstr="#A6000000",GradientType=0) \0;
+}
+
+.m-search-big .m-search-box .m-search-box-inner {
+    padding: 35px 60px 35px 70px;
+}
+
+.clrfix {
+    zoom: 1;
+}
+
+/*表单*/
+.form-appearance{
+    margin: 0px auto;
+    padding-top: 40px;
+    width: 1040px;
+    height: 215px;
+}
+
+.location-button{
+    float: left;
+    height: 40px;
+    width: 250px;
+}
+
+.location-button .dropdown-menu {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    z-index: 1000;
+    display: none;
+    float: left;
+    min-width: 20px;
+    padding: 5px 0;
+    margin: 2px 0 0;
+    font-size: 14px;
+    text-align: left;
+    list-style: none;
+    background-color: #fff;
+    -webkit-background-clip: padding-box;
+    background-clip: padding-box;
+    border: 1px solid #ccc;
+    border: 1px solid rgba(0,0,0,.15);
+    border-radius: 4px;
+    -webkit-box-shadow: 0 6px 12px rgba(0,0,0,.175);
+    box-shadow: 0 6px 12px rgba(0,0,0,.175);
+}
+
+.row-operate{
+    margin-top: 6px;
+    height: 120px;
+    width: 1040px;
+    float: left;
+}
+
+
+.input-from{
+    margin:0 5px 0 0;
+    height: 40px;
+    width: 505px;
+    float: left;
+    border-radius: 4px;
+}
+
+.e-exchange .ico-change {
+    display: block;
+    width: 18px;
+    height: 13px;
+    margin: 14px auto 0;
+    background: url(//simg1.qunarzz.com/site/images/en_flight/ico_qbox.png) no-repeat scroll 0 -60px;
+}
+
+.yang-form-control {
+     display: block;
+     width: 196px;
+     padding: 6px 12px;
+     font-size: 14px;
+     line-height: 1.42857143;
+     color: #555;
+     background-color: #fff;
+     background-image: none;
+     border: 1px solid #ccc;
+     border-radius: 4px;
+     -webkit-box-shadow: inset 0 1px 1px rgba(0,0,0,.075);
+     box-shadow: inset 0 1px 1px rgba(0,0,0,.075);
+     -webkit-transition: border-color ease-in-out .15s,-webkit-box-shadow ease-in-out .15s;
+     -o-transition: border-color ease-in-out .15s,box-shadow ease-in-out .15s;
+     transition: border-color ease-in-out .15s,box-shadow ease-in-out .15s;
+     border-top-left-radius: 0;
+     border-bottom-left-radius: 0;
+
+     display: table-cell;
+     float: left;
+ }
+
+
+.yang-form-control-ticket {
+    display: block;
+    width: 155px;
+    padding: 6px 12px;
+    font-size: 14px;
+    line-height: 1.42857143;
+    color: #555;
+    background-color: #fff;
+    background-image: none;
+    border: 1px solid #ccc;
+    -webkit-box-shadow: inset 0 1px 1px rgba(0,0,0,.075);
+    box-shadow: inset 0 1px 1px rgba(0,0,0,.075);
+    -webkit-transition: border-color ease-in-out .15s,-webkit-box-shadow ease-in-out .15s;
+    -o-transition: border-color ease-in-out .15s,box-shadow ease-in-out .15s;
+    transition: border-color ease-in-out .15s,box-shadow ease-in-out .15s;
+    border-top-left-radius: 0;
+    border-bottom-left-radius: 0;
+    vertical-align: middle;
+    display: table-cell;
+    float: left;
+}
+.input-group-ticket{
+
+}
+.input-group-addon-ticket {
+    border-radius: 4px;
+    border-top-left-radius: 0;
+    border-bottom-left-radius: 0;
+    height: 34px;
+    padding: 7px 12px 5px 12px;
+    font-size: 15px;
+    font-weight: 400;
+    line-height: 1;
+    color: #555;
+    text-align: center;
+    background-color: #eee;
+    border: 1px solid #ccc;
+    float: left;
+}
+
+.between-bar-city{
+    width: 285px;
+    height: 34px;
+    float: left;
+}
+
+.exchange-logo{
+    margin-top: 14px;
+    width: 20px;
+    float: left;
+}
+
+.input-to{
+    margin:0  0 0 5px;
+    height: 40px;
+    width: 505px;
+    
+    float: left;
+}
+
+.input-date{
+    margin-top: 6px;
+    height: 40px;
+    width: 540px;
+    float: left
+}
+
+
+.form-control-date {
+    display: block;
+    width: 168px;
+    height: 34px;
+    padding: 6px 12px;
+    font-size: 14px;
+    line-height: 1.42857143;
+    color: #555;
+    background-color: #fff;
+    background-image: none;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    -webkit-box-shadow: inset 0 1px 1px rgba(0,0,0,.075);
+    box-shadow: inset 0 1px 1px rgba(0,0,0,.075);
+    -webkit-transition: border-color ease-in-out .15s,-webkit-box-shadow ease-in-out .15s;
+    -o-transition: border-color ease-in-out .15s,box-shadow ease-in-out .15s;
+    transition: border-color ease-in-out .15s,box-shadow ease-in-out .15s;
+    border-radius: 0;
+}
+.between-bar{
+    margin-top: 6px;
+    width: 165px;
+    height: 34px;
+    float: left;
+}
+
+.submit-btn-appearance{
+    margin-top: 6px;
+    height: 50px;
+    width: 200px;
+    float: left;
+}
