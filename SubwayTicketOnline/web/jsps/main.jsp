@@ -181,7 +181,7 @@
               </div>
 
               <div class="exchange-logo">
-                <a href="">
+                <a href="#">
                   <i class="glyphicon glyphicon-transfer" style="color: rgb(212, 106, 64);" ></i>
                 </a>
               </div>

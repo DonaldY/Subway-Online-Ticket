@@ -70,14 +70,22 @@
 </nav>
 <!-- Page Content -->
 <div class="order-container">
-  <div class="order-row">
-    <div class="order-content">
-      <div class="order-thumbnail">
 
+  <div class="order-row">
+
+    <div class="order-content">
+
+      <div class="order-thumbnail">
+          <img src="<c:url value='/image/erweima.png'/>" >
+      </div>
+      <div class="order-thumbnail">
+          序列号
       </div>
 
     </div>
+
   </div>
+
 </div>
 <!-- Page Content -->
 <%--<div class="container">
