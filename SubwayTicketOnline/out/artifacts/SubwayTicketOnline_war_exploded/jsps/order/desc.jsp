@@ -73,14 +73,20 @@
 
   <div class="order-row">
 
-    <div class="order-content">
+    <div class="order-content-up">
 
       <div class="order-thumbnail">
           <img src="<c:url value='/image/erweima.png'/>" >
       </div>
+
       <div class="order-thumbnail">
-          序列号
+          < class="">1704201205XXXX</>
       </div>
+
+    </div>
+
+    <div class="order-content-down">
+
 
     </div>
 
