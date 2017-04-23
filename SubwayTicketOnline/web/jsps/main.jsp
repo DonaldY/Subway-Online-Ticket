@@ -255,7 +255,7 @@
               </div>
 
               <div class="submit-btn-appearance">
-                <button type="button" class="btn btn-default" style="font-size: 20px ">
+                <button type="button" class="btn btn-default" style="font-size: 20px " disabled="disabled">
                   <span class="glyphicon glyphicon-check"></span> 　购　买　
                 </button>
               </div>
