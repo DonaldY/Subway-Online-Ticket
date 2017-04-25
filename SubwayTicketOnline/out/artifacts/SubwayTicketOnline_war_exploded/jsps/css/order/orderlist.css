@@ -1,0 +1,16 @@
+body {
+    padding-top: 70px;
+}
+
+
+.order-container{
+    margin: auto;
+    padding-right: 15px;
+    padding-left: 15px;
+    width: 750px;
+    height: 750px;
+    min-height: 750px;
+    min-width: 750px;
+    border: 1px solid #ddd;
+    border-radius: 10px;
+}
