@@ -14,3 +14,75 @@ body {
     border: 1px solid #ddd;
     border-radius: 10px;
 }
+
+.order-item {
+    text-align:left;
+    display: block;
+    padding: 4px;
+    margin-bottom: 10px;
+    margin-top: 10px;
+    line-height: 1.42857143;
+    background-color: #fff;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    -webkit-transition: border .2s ease-in-out;
+    -o-transition: border .2s ease-in-out;
+    transition: border .2s ease-in-out;
+}
+
+.order-item-title {
+
+    height: 39px;
+    text-align:center;
+    display: block;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    padding: 4px;
+    line-height: 1.42857143;
+    background-color: #f5f5f5;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    -webkit-transition: border .2s ease-in-out;
+    -o-transition: border .2s ease-in-out;
+    transition: border .2s ease-in-out;
+
+}
+
+.order-item-title-col-1 {
+    float: left;
+    margin-top: 5px;
+    margin-bottom: 5px;
+    width: 40%;
+
+}
+
+.order-item-title-col-2 {
+    float: left;
+    margin-top: 5px;
+    margin-bottom: 5px;
+    width: 15%;
+
+}
+
+.order-item-title-col-3 {
+    float: left;
+    margin-top: 5px;
+    margin-bottom: 5px;
+    width: 15%;
+
+}
+
+.order-item-title-col-4 {
+    float: left;
+    margin-top: 5px;
+    margin-bottom: 5px;
+    width: 30%;
+
+}
+
+
+.order-item-img {
+    display: block;
+    max-height: 100px;
+    margin: 5px 5px 5px 10px;
+}

@@ -90,7 +90,10 @@
         <div class="col-md-9">
 
           <div class="thumbnail">
+
             <br>
+
+            <!-- 导航 -->
             <ul class="nav nav-tabs">
               <li ><a href="#">未付款订单</a></li>
               <li ><a href="#">已成功订单</a></li>
@@ -99,8 +102,65 @@
               <li><a href="#">全部订单</a></li>
             </ul>
 
+            <!-- title -->
+            <div class="order-item-title">
+
+              <div class="order-item-title-col-1">
+                小票子
+              </div>
+
+              <div class="order-item-title-col-2">
+                单价
+              </div>
+
+              <div class="order-item-title-col-3">
+                数量
+              </div>
+
+              <div class="order-item-title-col-4">
+                交易状态
+              </div>
+
+            </div>
+
+            <!-- item -->
+            <div class="order-item">
+
+              <div class="order-item-img">
+                <img src="<c:url value='/QR-Code_img/test_b.png'/>" >
+              </div>
+
+            </div>
+
+            <div class="order-item">
+
+              <div class="order-item-img">
+                <img src="<c:url value='/QR-Code_img/test_b.png'/>" >
+              </div>
+
+            </div>
+
+            <div class="order-item">
+
+              <div class="order-item-img">
+                <img src="<c:url value='/QR-Code_img/test_b.png'/>" >
+              </div>
+
+            </div>
+
+            <div class="order-item">
+
+              <div class="order-item-img">
+                <img src="<c:url value='/QR-Code_img/test_b.png'/>" >
+              </div>
+
+            </div>
+
 
           </div>
+
+
+
 
         </div>
 
@@ -117,7 +177,7 @@
       <footer>
         <div class="row">
           <div class="col-lg-12">
-            <p>Copyright &copy; Your Website 2014</p>
+            <p align="center">Copyright &copy;By Donald</p>
           </div>
         </div>
       </footer>

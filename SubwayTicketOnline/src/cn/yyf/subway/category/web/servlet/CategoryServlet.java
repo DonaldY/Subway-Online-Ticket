@@ -17,6 +17,7 @@ import java.util.List;
  */
 
 public class CategoryServlet extends BaseServlet {
+
     private CategoryService categoryService = new CategoryService();
 
     /**
