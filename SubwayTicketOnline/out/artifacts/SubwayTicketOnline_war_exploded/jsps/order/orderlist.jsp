@@ -96,7 +96,7 @@
             <!-- 导航 -->
             <ul class="nav nav-tabs">
               <li ><a href="#">未付款订单</a></li>
-              <li ><a href="#">已成功订单</a></li>
+              <li ><a href="#">已付款订单</a></li>
               <li class="active"><a href="#">已取消订单</a></li>
               <li><a href="#">已失效订单</a></li>
               <li><a href="#">全部订单</a></li>
@@ -124,40 +124,55 @@
             </div>
 
             <!-- item -->
-            <div class="order-item">
+            <div class="order-item-detail" onclick="">
 
-              <div class="order-item-img">
-                <img src="<c:url value='/QR-Code_img/test_b.png'/>" >
+              <div class="order-item-detail-time">
+                　<span style="font-weight: 700;">2017-5-2</span>　　<span>订单号：123456789</span>
               </div>
 
-            </div>
+              <div class="order-item-detail-items">
 
-            <div class="order-item">
+                <div class="order-item-detail-items-img">
+                  <img src="<c:url value='/QR-Code_img/test_b.png'/>" >
+                </div>
 
-              <div class="order-item-img">
-                <img src="<c:url value='/QR-Code_img/test_b.png'/>" >
+                <div class="order-item-detail-items-station">
+                  <p><span>城市：</span><span>南京</span></p>
+                  <p class="station-row"><span >出发站：</span><span>仙林中心</span></p>
+                  <p class="station-row"><span>目的站：</span><span>雨花台</span></p>
+                </div>
+
+                <div class="order-item-detail-items-price">
+                  <p class="price-row">
+                    <span style="">￥</span><span>4</span>
+                  </p>
+                </div>
+
+                <div class="order-item-detail-items-num">
+                  <p class="num-row">
+                    <span>2</span>
+                  </p>
+                </div>
+
+                <div class="order-item-detail-items-status">
+                  <p class="status-row">
+                    <span>未付款</span>
+                  </p>
+                  <%--<p class="status-row">
+                    <span>已付款</span>
+                  </p>
+                  <p class="status-row">
+                    <span>已取消</span>
+                  </p>
+                  <p class="status-row">
+                    <span>已失效</span>
+                  </p>--%>
+
+                </div>
               </div>
 
-            </div>
-
-            <div class="order-item">
-
-              <div class="order-item-img">
-                <img src="<c:url value='/QR-Code_img/test_b.png'/>" >
-              </div>
 
             </div>
-
-            <div class="order-item">
-
-              <div class="order-item-img">
-                <img src="<c:url value='/QR-Code_img/test_b.png'/>" >
-              </div>
-
-            </div>
-
-
-          </div>
 
 
 
