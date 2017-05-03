@@ -8,8 +8,12 @@
 $(document).on('click',"#cityId li",function () {
     var city = $(this).text();
     $("#inputCity").attr("value",city);//fillfull
-
     var pid = $(this).attr('value');
+    alert("pid : " + pid);
+    $("#inputCategoryParent").attr('value', pid);
+    alert($("#inputCategoryParent").value);
+
+
     //loading children by ajax
     $.ajax({
         async:true,
@@ -114,6 +118,10 @@ function loadCity(){
 
 
 $(function(){
+
+    /**
+     * 表单填充
+     */
     //City change
     $("#cityId").children('li').bind('click', function(){
         var city = $(this).text();
@@ -138,6 +146,31 @@ $(function(){
         var num = $(this).text();
         $("#ticketNum").attr("value", num);
     });
+
+
+    /**
+     *
+     */
+    /*$("#submit"(
+        function() {
+            $("#submit").removeAttribute("disabled");
+        },
+        function() {
+            $("#submit").setAttribute("disabled", "disabled");
+        }
+    );*/
+
+
+    /**
+     * 提交表单验证
+     */
+   /* $("#createOrder").submit(function() {
+        var bool = true;//表示校验通过
+
+
+        return bool;
+    });*/
+
 });
 
 
@@ -216,6 +249,7 @@ function loadParent() {
     }
 }
 
+
 /**
  * when path-input-text change
  * load this function
@@ -228,6 +262,8 @@ function loadChildren1(){
     $("#fromStation").append("<li>请选择出发站点</li>");
 
 }
+
+
 /**
  * when path-input-text change
  * load this function
@@ -240,3 +276,7 @@ function loadChildren2(){
     $("#toStation").append("<li>请选择出发站点</li>");
 
 }
+
+
+
+

@@ -87,7 +87,8 @@
         </div>
         <div id = "js-search-box" class="m-search-box">
           <div class="m-search-box-inner clrfix" id="js-search-form">
-            <form  class="form-inline" role="form">
+            <form  class="form-inline" role="form" action="<c:url value='/UserServlet'/>" method="post"
+                   id="createOrder">
               <div class="form-appearance">
 
                 <div class="location-button">
@@ -102,7 +103,8 @@
                           <li  value="">城市</li>
                         </ul>
                       </div>
-                      <input type="text" class="yang-form-control"   placeholder="所在城市" value="" id="inputCity" onchange="loadParent()">
+                      <input type="text" class="yang-form-control"   placeholder="所在城市" value="" id="inputCity"
+                             onchange="loadParent()" readonly>
                       <input type="hidden" id="inputCategoryParent" value="" /><br/>
                     </div>
                 </div>
@@ -156,7 +158,8 @@
 
                         </ul>
                       </div>
-                      <input type="text" class="yang-form-control"   placeholder="出发线路" value="" id="inputFromPath" onchange="loadChildren1()">
+                      <input type="text" class="yang-form-control"   placeholder="出发线路" value="" id="inputFromPath"
+                             onchange="loadChildren1()" readonly>
                       <input type="hidden" id="inputCategoryChild1" value="" /><br/>
                     </div>
 
@@ -171,7 +174,8 @@
                           <li value="请选择出发站点">请选择出发站点</li>
                         </ul>
                       </div>
-                      <input type="text" class="yang-form-control"   placeholder="出发站点" value="" id="inputFromStation" >
+                      <input type="text" class="yang-form-control"   placeholder="出发站点" value=""
+                             id="inputFromStation" readonly >
                       <input type="hidden" id="inputStation1" value="" /><br/>
                     </div>
 
@@ -199,7 +203,8 @@
                           <li value="请选择到达线路">请选择到达线路</li>
                         </ul>
                       </div>
-                      <input type="text" class="yang-form-control"   placeholder="到达线路" value="" id="inputToPath" onchange="loadChildren2()">
+                      <input type="text" class="yang-form-control"   placeholder="到达线路" value="" id="inputToPath"
+                             onchange="loadChildren2()" readonly>
                       <input type="hidden" id="inputCategoryChild2" value="" /><br/>
                     </div>
 
@@ -213,7 +218,8 @@
                           <li value="请选择到达站点">请选择到达站点</li>
                         </ul>
                       </div>
-                      <input type="text" class="yang-form-control"   placeholder="到达站点"  value="" id="inputToStation" >
+                      <input type="text" class="yang-form-control"   placeholder="到达站点"  value="" id="inputToStation"
+                             readonly>
                       <input type="hidden" id="inputStation2" value="" /><br/>
                     </div>
 
@@ -224,7 +230,8 @@
                   <div class="input-date">
                     <div class="input-group ">
                       <div class="form-group">
-                        <div class="input-group date form_date col-md-5" data-date="" data-date-format="yyyy-mm-dd" data-link-field="inputDate" data-link-format="yyyy-mm-dd">
+                        <div class="input-group date form_date col-md-5" data-date="" data-date-format="yyyy-mm-dd"
+                             data-link-field="inputDate" data-link-format="yyyy-mm-dd" >
 
                           <span class="input-group-addon input-date-logo"><span class="glyphicon glyphicon-calendar"></span></span>
                           <input class="form-control-date "  type="text" value="" placeholder="yy-mm-dd" readonly>
@@ -255,7 +262,7 @@
                   </div>
 
                   <div class="submit-btn-appearance">
-                    <button type="button" class="btn btn-default" style="font-size: 20px " disabled="disabled">
+                    <button type="submit" class="btn btn-default" style="font-size: 20px " disabled="disabled" id="submit">
                       <span class="glyphicon glyphicon-check"></span> 　购　买　
                     </button>
                   </div>
