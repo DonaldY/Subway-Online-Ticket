@@ -1,11 +1,11 @@
-package Test;
+package test;
 
 import cn.itcast.commons.CommonUtils;
 
 /**
  * Created by Donald on 2016/8/19.
  */
-public class createStation {
+public class CreateStation {
     public static void main(String[] args) {
         //System.out.println(CommonUtils.uuid());
 
