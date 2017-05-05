@@ -95,7 +95,6 @@ public class UserServlet extends BaseServlet {
             errors = "密码长度必须在3~20之间!";
         }
 
-		// 验证码
         /**
          * 后期功能，按输错次数显示验证码
          */
@@ -121,8 +120,10 @@ public class UserServlet extends BaseServlet {
      * @throws IOException
      */
     public String quit(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException{
+
         req.getSession().invalidate();
         return "r:/jsps/user/login.jsp";
+
     }
 
     /**
@@ -135,11 +136,11 @@ public class UserServlet extends BaseServlet {
      */
     public String regist(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException{
 		/**
-		 * 1.封装表单数据到user
+		 * 封装表单数据到user
 		 */
         User formUser = CommonUtils.toBean(req.getParameterMap(), User.class);
         /**
-		 *2. 校验，如果校验失败，保存错误信息，返回到regist.jsp显示
+		 * 校验，如果校验失败，保存错误信息，返回到regist.jsp显示
 		 */
         Map<String, String> errors = validateRegist(formUser, req.getSession());
         if(errors.size() > 0){
@@ -148,11 +149,11 @@ public class UserServlet extends BaseServlet {
             return "f:/jsps/user/regist.jsp";
         }
 		/**
-		 * 3.使用service来完成业务
+		 * 使用service来完成业务
 		 */
         userService.regist(formUser);
 		/**
-		 * 4.保存成功信息,转发到msg.jsp显示
+		 * 保存成功信息,转发到msg.jsp显示
 		 */
         String msg = "<p>Welcome to Subway-Ticket-Online! We&#39;ve sent a confirmation email to " + formUser.getEmail() + ".</p>\n" +
                 "            <p>Please <b>check your email</b> and click the link to confirm your email address.</p>\n" +
