@@ -9,10 +9,7 @@ $(document).on('click',"#cityId li",function () {
     var city = $(this).text();
     $("#inputCity").attr("value",city);//fillfull
     var pid = $(this).attr('value');
-    alert("pid : " + pid);
     $("#inputCategoryParent").attr('value', pid);
-    alert($("#inputCategoryParent").value);
-
 
     //loading children by ajax
     $.ajax({
@@ -149,16 +146,18 @@ $(function(){
 
 
     /**
-     *
+     * 按钮变更
      */
-    /*$("#submit"(
+    $("#submit").hover(
+
         function() {
-            $("#submit").removeAttribute("disabled");
+            $("#submit").disabled = false;
         },
         function() {
-            $("#submit").setAttribute("disabled", "disabled");
+            $("#submit").disabled = true;
         }
-    );*/
+    );
+
 
 
     /**

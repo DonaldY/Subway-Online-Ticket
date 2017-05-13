@@ -229,7 +229,7 @@ public class UserServlet extends BaseServlet {
      * @throws IOException
      */
     public String activation(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException{
-		/*
+		/**
 		 * 	1.获取参数激活码
 		 * 	2.用激活码调用service方法完成激活
 		 *  	service方法有可能抛出异常，把异常信息拿来，保存在request中，转发到msg.jsp显示

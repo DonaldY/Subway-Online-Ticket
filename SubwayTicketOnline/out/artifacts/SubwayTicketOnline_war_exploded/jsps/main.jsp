@@ -87,7 +87,7 @@
         </div>
         <div id = "js-search-box" class="m-search-box">
           <div class="m-search-box-inner clrfix" id="js-search-form">
-            <form  class="form-inline" role="form" action="<c:url value='/UserServlet'/>" method="post"
+            <form  class="form-inline" role="form" action="<c:url value='/OrderServlet'/>" method="post"
                    id="createOrder">
               <div class="form-appearance">
 
@@ -104,8 +104,8 @@
                         </ul>
                       </div>
                       <input type="text" class="yang-form-control"   placeholder="所在城市" value="" id="inputCity"
-                             onchange="loadParent()" readonly>
-                      <input type="hidden" id="inputCategoryParent" value="" /><br/>
+                             onchange="loadParent()" readonly />
+
                     </div>
                 </div>
 
@@ -133,9 +133,10 @@
                         <li  value="8">8</li>
                       </ul>
                     </div>
-                    <input type="text" class="yang-form-control-ticket"   placeholder="请选择所需票数" value="" id="ticketNum" readonly>
+                    <input type="text" class="yang-form-control-ticket"   placeholder="请选择所需票数" value=""
+                           id="ticketNum" readonly />
                     <span class="input-group-addon-ticket">张</span>
-                    <input type="hidden" id="inputTicketNum" value="" /><br/>
+
                   </div>
                 </div>
 
@@ -159,8 +160,8 @@
                         </ul>
                       </div>
                       <input type="text" class="yang-form-control"   placeholder="出发线路" value="" id="inputFromPath"
-                             onchange="loadChildren1()" readonly>
-                      <input type="hidden" id="inputCategoryChild1" value="" /><br/>
+                             onchange="loadChildren1()" readonly />
+
                     </div>
 
                     <div class="input-group">
@@ -175,8 +176,8 @@
                         </ul>
                       </div>
                       <input type="text" class="yang-form-control"   placeholder="出发站点" value=""
-                             id="inputFromStation" readonly >
-                      <input type="hidden" id="inputStation1" value="" /><br/>
+                             id="inputFromStation" readonly />
+
                     </div>
 
 
@@ -204,8 +205,8 @@
                         </ul>
                       </div>
                       <input type="text" class="yang-form-control"   placeholder="到达线路" value="" id="inputToPath"
-                             onchange="loadChildren2()" readonly>
-                      <input type="hidden" id="inputCategoryChild2" value="" /><br/>
+                             onchange="loadChildren2()" readonly />
+
                     </div>
 
                     <div class="input-group ">
@@ -219,8 +220,8 @@
                         </ul>
                       </div>
                       <input type="text" class="yang-form-control"   placeholder="到达站点"  value="" id="inputToStation"
-                             readonly>
-                      <input type="hidden" id="inputStation2" value="" /><br/>
+                             readonly />
+
                     </div>
 
 
@@ -234,11 +235,11 @@
                              data-link-field="inputDate" data-link-format="yyyy-mm-dd" >
 
                           <span class="input-group-addon input-date-logo"><span class="glyphicon glyphicon-calendar"></span></span>
-                          <input class="form-control-date "  type="text" value="" placeholder="yy-mm-dd" readonly>
+                          <input class="form-control-date "  type="text" value="" placeholder="yy-mm-dd" readonly />
                           <span class="input-group-addon .input-date-logo"><span class="glyphicon glyphicon-remove"></span></span>
 
                         </div>
-                        <input type="hidden" id="inputDate" value="" /><br/>
+
                       </div>
                     </div>
                   </div>
