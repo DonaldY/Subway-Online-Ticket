@@ -89,6 +89,7 @@
           <div class="m-search-box-inner clrfix" id="js-search-form">
             <form  class="form-inline" role="form" action="<c:url value='/OrderServlet'/>" method="post"
                    id="createOrder">
+              <input type="hidden" name="method" value="createOrder" />
               <div class="form-appearance">
 
                 <div class="location-button">
@@ -103,8 +104,8 @@
                           <li  value="">城市</li>
                         </ul>
                       </div>
-                      <input type="text" class="yang-form-control"   placeholder="所在城市" value="" id="inputCity"
-                             onchange="loadParent()" readonly />
+                      <input type="text" class="yang-form-control inputClass"   placeholder="所在城市" value="" id="inputCity"
+                             onchange="loadParent()"  name="city" readonly />
 
                     </div>
                 </div>
@@ -133,8 +134,8 @@
                         <li  value="8">8</li>
                       </ul>
                     </div>
-                    <input type="text" class="yang-form-control-ticket"   placeholder="请选择所需票数" value=""
-                           id="ticketNum" readonly />
+                    <input type="text" class="yang-form-control-ticket inputClass"   placeholder="请选择所需票数" value=""
+                           id="ticketNum" name="ticketNum" readonly />
                     <span class="input-group-addon-ticket">张</span>
 
                   </div>
@@ -159,8 +160,8 @@
 
                         </ul>
                       </div>
-                      <input type="text" class="yang-form-control"   placeholder="出发线路" value="" id="inputFromPath"
-                             onchange="loadChildren1()" readonly />
+                      <input type="text" class="yang-form-control inputClass"   placeholder="出发线路" value="" id="inputFromPath"
+                             onchange="loadChildren1()" name="fromPath" readonly />
 
                     </div>
 
@@ -175,8 +176,8 @@
                           <li value="请选择出发站点">请选择出发站点</li>
                         </ul>
                       </div>
-                      <input type="text" class="yang-form-control"   placeholder="出发站点" value=""
-                             id="inputFromStation" readonly />
+                      <input type="text" class="yang-form-control inputClass"   placeholder="出发站点" value=""
+                             id="inputFromStation" name="fromStation" readonly />
 
                     </div>
 
@@ -204,8 +205,8 @@
                           <li value="请选择到达线路">请选择到达线路</li>
                         </ul>
                       </div>
-                      <input type="text" class="yang-form-control"   placeholder="到达线路" value="" id="inputToPath"
-                             onchange="loadChildren2()" readonly />
+                      <input type="text" class="yang-form-control inputClass"   placeholder="到达线路" value="" id="inputToPath"
+                             onchange="loadChildren2()" name="toPath" readonly />
 
                     </div>
 
@@ -219,8 +220,8 @@
                           <li value="请选择到达站点">请选择到达站点</li>
                         </ul>
                       </div>
-                      <input type="text" class="yang-form-control"   placeholder="到达站点"  value="" id="inputToStation"
-                             readonly />
+                      <input type="text" class="yang-form-control inputClass"   placeholder="到达站点"  value="" id="inputToStation"
+                             name="toStation" readonly />
 
                     </div>
 
@@ -235,7 +236,8 @@
                              data-link-field="inputDate" data-link-format="yyyy-mm-dd" >
 
                           <span class="input-group-addon input-date-logo"><span class="glyphicon glyphicon-calendar"></span></span>
-                          <input class="form-control-date "  type="text" value="" placeholder="yy-mm-dd" readonly />
+                          <input class="form-control-date inputClass"  type="text" value="" placeholder="yy-mm-dd"
+                                 id="inputTime" name="startTime" readonly />
                           <span class="input-group-addon .input-date-logo"><span class="glyphicon glyphicon-remove"></span></span>
 
                         </div>
@@ -246,15 +248,21 @@
 
                   <script type="text/javascript">
                     $('.form_date').datetimepicker({
-                      //language:  'fr',
-                      weekStart: 1,
-                      todayBtn:  1,
-                      autoclose: 1,
-                      todayHighlight: 1,
-                      startView: 2,
-                      minView: 2,
-                      forceParse: 0
+                        //language:  'fr',
+                        weekStart: 1,
+                        todayBtn:  1,
+                        autoclose: 1,
+                        todayHighlight: 1,
+                        startView: 2,
+                        minView: 2,
+                        forceParse: 0,
+                        initialDate: new Date()
                     });
+
+                    $('.form_date').datetimepicker('setStartDate', new Date());
+
+                    $('#inputTime').attr('placeholder', (new Date().toLocaleDateString()).replace(/\//g, "-"));
+
                   </script>
 
 
@@ -263,7 +271,8 @@
                   </div>
 
                   <div class="submit-btn-appearance">
-                    <button type="submit" class="btn btn-default" style="font-size: 20px " disabled="disabled" id="submit">
+                    <button type="submit" class="btn btn-warning" style="font-size: 20px;" disabled="disabled"
+                            id="submit">
                       <span class="glyphicon glyphicon-check"></span> 　购　买　
                     </button>
                   </div>

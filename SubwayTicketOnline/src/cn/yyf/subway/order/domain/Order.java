@@ -1,5 +1,7 @@
 package cn.yyf.subway.order.domain;
 
+import com.sun.org.apache.xpath.internal.operations.Or;
+
 /**
  * Created by DonaldY on 2017/5/4.
  */
@@ -7,6 +9,7 @@ public class Order {
 
     private String oid;
     private String orderTime;
+    private String startTime;
     private String endTime;
     private String city;
     private String fromPath;
@@ -18,7 +21,11 @@ public class Order {
     private int status;
     private String serialNum;
     private String uid;
-    private int count;
+    private int ticketNum;
+
+    public Order() {
+
+    }
 
     public String getOid() {
         return oid;
@@ -34,6 +41,14 @@ public class Order {
 
     public void setOrderTime(String orderTime) {
         this.orderTime = orderTime;
+    }
+
+    public String getStartTime() {
+        return startTime;
+    }
+
+    public void setStartTime(String startTime) {
+        this.startTime = startTime;
     }
 
     public String getEndTime() {
@@ -124,11 +139,31 @@ public class Order {
         this.uid = uid;
     }
 
-    public int getCount() {
-        return count;
+    public int getTicketNum() {
+        return ticketNum;
     }
 
-    public void setCount(int count) {
-        this.count = count;
+    public void setTicketNum(int ticketNum) {
+        this.ticketNum = ticketNum;
+    }
+
+    @Override
+    public String toString() {
+        return "Order{" +
+            "oid='" + oid + '\'' +
+            ", startTime='" + startTime + '\'' +
+            ", endTime='" + endTime + '\'' +
+            ", city='" + city + '\'' +
+            ", fromPath='" + fromPath + '\'' +
+            ", toPath='" + toPath + '\'' +
+            ", fromStation='" + fromStation + '\'' +
+            ", toStation='" + toStation + '\'' +
+            ", image_w='" + image_w + '\'' +
+            ", image_b='" + image_b + '\'' +
+            ", status=" + status +
+            ", serialNum='" + serialNum + '\'' +
+            ", uid='" + uid + '\'' +
+            ", ticketNum=" + ticketNum +
+            '}';
     }
 }

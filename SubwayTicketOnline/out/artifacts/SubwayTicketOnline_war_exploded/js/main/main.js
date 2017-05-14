@@ -29,6 +29,7 @@ $(document).on('click',"#cityId li",function () {
             }
         }
     });
+    showButton();
 
 });
 
@@ -54,6 +55,7 @@ $(document).on('click',"#fromPath li",function () {
             }
         }
     });
+    showButton();
 
 });
 
@@ -79,17 +81,20 @@ $(document).on('click',"#toPath li",function () {
             }
         }
     });
+    showButton();
 });
 
 //inputfromStation click
 $(document).on('click',"#fromStation li",function () {
     var fromStation = $(this).text();
     $("#inputFromStation").attr("value",fromStation);//fillfull
+    showButton();
 });
 
 $(document).on('click',"#toStation li",function () {
     var toStation = $(this).text();
     $("#inputToStation").attr("value",toStation);//fillfull
+    showButton();
 });
 
 //HTML loading do this
@@ -109,56 +114,23 @@ function loadCity(){
             }
         }
     });
+
+
 }
 
 
 
 
 $(function(){
-
     /**
      * 表单填充
      */
-    //City change
-    $("#cityId").children('li').bind('click', function(){
-        var city = $(this).text();
-        $("#inputCity").attr("value",city);//fillfull
-
-    });
-
-    //fromPath change
-    $("#fromPath").children('li').bind('click', function(){
-        var fromPath = $(this).text();
-        $("#inputFromPath").attr("value", fromPath);
-    });
-
-    //toPath change
-    $("#toPath").children('li').bind('click', function(){
-        var toPath = $(this).text();
-        $("#inputToPath").attr("value", toPath);
-    });
-
     //ticket change
     $("#ticket").children('li').bind('click', function(){
         var num = $(this).text();
         $("#ticketNum").attr("value", num);
+        showButton();
     });
-
-
-    /**
-     * 按钮变更
-     */
-    $("#submit").hover(
-
-        function() {
-            $("#submit").disabled = false;
-        },
-        function() {
-            $("#submit").disabled = true;
-        }
-    );
-
-
 
     /**
      * 提交表单验证
@@ -276,6 +248,40 @@ function loadChildren2(){
 
 }
 
+/**
+ * Button 改变
+ */
+function showButton() {
+
+    if (isFillAllInput()) {
+        $('#submit').attr("disabled",false);
+
+    } else {
+        $('#submit').attr("disabled",true);
+    }
+}
+
+
+/**
+ * 是否所有input均满
+ */
+function isFillAllInput() {
+
+    var bool = true;
+
+    $(".inputClass").each(function() {
+
+        if ($(this).val().length == 0 || $(this).val() == "") {
+
+            bool =  false;
+            return;
+        }
+
+    });
+
+    return bool;
+
+}
 
 
 
