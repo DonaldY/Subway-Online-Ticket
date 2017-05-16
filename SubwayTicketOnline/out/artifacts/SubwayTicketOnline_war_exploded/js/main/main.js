@@ -272,11 +272,9 @@ function isFillAllInput() {
     $(".inputClass").each(function() {
 
         if ($(this).val().length == 0 || $(this).val() == "") {
-
             bool =  false;
             return;
         }
-
     });
 
     return bool;

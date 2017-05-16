@@ -236,7 +236,7 @@
                              data-link-field="inputDate" data-link-format="yyyy-mm-dd" >
 
                           <span class="input-group-addon input-date-logo"><span class="glyphicon glyphicon-calendar"></span></span>
-                          <input class="form-control-date inputClass"  type="text" value="" placeholder="yy-mm-dd"
+                          <input class="form-control-date"  type="text" value="" placeholder="yy-mm-dd"
                                  id="inputTime" name="startTime" readonly />
                           <span class="input-group-addon .input-date-logo"><span class="glyphicon glyphicon-remove"></span></span>
 
