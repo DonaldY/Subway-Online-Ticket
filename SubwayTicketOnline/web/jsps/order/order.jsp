@@ -76,7 +76,72 @@
 
       <div class="order-left">
         <div class="clear-fix">
-          <div class="img-container" style="height: 361.163px;">
+          <div class="station-container" style="height: 361.163px;">
+
+            <div class="station-hd s-hd">
+              <i class=""></i>
+              <span class="s-title">雨花台</span>
+              <span style="font-size: 12px">至</span>
+              <span class="s-title">仙林中心</span>
+              <span>途径站点</span>
+              <span class="s-title-num">共15站</span>
+            </div>
+
+            <div class="station-mn">
+
+              <div class="routeMap">
+
+                <ul class="s-clear">
+                  <li class="ride">
+                  <a href="" class="cl-station">南京南</a>
+                </li>
+                  <li class="ride">
+                    <a href="" class="cl-station">南京南</a>
+                  </li>
+                  <li class="ride">
+                    <a href="" class="cl-station">南京南</a>
+                  </li>
+                  <li class="ride">
+                    <a href="" class="cl-station">南京南</a>
+                  </li>
+                  <li class="ride">
+                    <a href="" class="cl-station">南京南</a>
+                  </li>
+                  <li class="ride">
+                    <a href="" class="cl-station">南京南</a>
+                  </li>
+                  <li class="ride">
+                    <a href="" class="cl-station">南京南</a>
+                  </li>
+                  <li class="ride">
+                    <a href="" class="cl-station">南京南</a>
+                  </li>
+
+                </ul>
+
+              </div>
+
+              <div class="s-info">
+                <dl>
+                  <dt>
+                    <span>可换乘站点</span>
+                  </dt>
+
+                  <dd>
+                    <ul>
+
+                      <li>
+                        <span>新街口</span>
+                        <span>-></span>
+                        <span>3号线</span>
+                      </li>
+
+                    </ul>
+                  </dd>
+                </dl>
+              </div>
+
+            </div>
 
           </div>
 
@@ -154,7 +219,7 @@
       <div class="order-tips">
         <h4>特别提示：</h4>
         <ul>
-          <li>1、下单前请仔细核对城市、线路、站点、手机号等信息。</li>
+          <li>1、下单前请仔细核对城市、线路、站点、时间等信息。</li>
           <li>2、下单前请仔细核对城市、线路、站点、手机号等信息。</li>
           <li>3、下单前请仔细核对城市、线路、站点、手机号等信息。</li>
           <li>4、下单前请仔细核对城市、线路、站点、手机号等信息。</li>
@@ -162,9 +227,7 @@
       </div>
 
       <div class="order-info">
-        <h4>代理信息：</h4>
-        <p></p>
-        <p>客服电话：</p>
+        <h4>注意：</h4>
       </div>
 
     </div>
