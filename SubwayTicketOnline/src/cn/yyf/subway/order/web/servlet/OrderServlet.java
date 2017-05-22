@@ -97,4 +97,25 @@ public class OrderServlet extends BaseServlet {
 
     }
 
+    public String confirmOrder(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+
+        Order formOrder = CommonUtils.toBean(req.getParameterMap(), Order.class);
+
+       /* String msg = validateOrder(formOrder, req.getSession());
+
+        if (msg != "" && msg.length() != 0) {
+            return "f:/jsps/main.jsp";
+        }*/
+
+        System.out.println(formOrder);
+
+        /**
+         * 生成最短路径
+         * 1. 
+         */
+
+
+        return "f:/jsps/order/order.jsp";
+    }
+
 }

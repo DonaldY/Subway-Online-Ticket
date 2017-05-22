@@ -49,9 +49,15 @@
         </div>
       </form>
       <div class="social-login clearfix">
-        <a class="btn btn-primary pull-left weibo" href="#"><i class="icon-weibo">
-        </i>微博 账户登录</a><a class="btn btn-primary pull-right renren" href="#">
-        <i class="icon-renren"></i>人人 账户登录</a>
+
+        <a class="btn btn-primary pull-left weibo" href="#">
+          <i class="icon-weibo"></i>微博 账户登录
+        </a>
+
+        <a class="btn btn-primary pull-right renren" href="#">
+          <i class="icon-renren"></i>人人 账户登录
+        </a>
+
       </div>
       <p class="signup">
         已经有账户了？ <a href="<c:url value='/jsps/user/login.jsp'/>">立即登录</a>

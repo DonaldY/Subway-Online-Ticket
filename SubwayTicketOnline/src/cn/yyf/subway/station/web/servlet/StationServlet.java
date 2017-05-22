@@ -17,11 +17,12 @@ import java.util.List;
  */
 @WebServlet(name = "StationServlet")
 public class StationServlet extends BaseServlet {
+
     private StationService stationService = new StationService();
 
     public String ajaxFindStation(HttpServletRequest req, HttpServletResponse resp)
             throws ServletException,IOException{
-		/*
+		/**
 		 * 1.获取pid
 		 * 2.通过pid查询出所有2级分类
 		 * 3.把List<station>转换成json，输出给客户端

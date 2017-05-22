@@ -1,6 +1,5 @@
 package cn.yyf.subway.order.domain;
 
-import com.sun.org.apache.xpath.internal.operations.Or;
 
 /**
  * Created by DonaldY on 2017/5/4.
@@ -20,8 +19,11 @@ public class Order {
     private String image_b;
     private int status;
     private String serialNum;
-    private String uid;
     private int ticketNum;
+    private double price;
+    private double totalPrice;
+    private String uid;
+
 
     public Order() {
 
@@ -131,14 +133,6 @@ public class Order {
         this.serialNum = serialNum;
     }
 
-    public String getUid() {
-        return uid;
-    }
-
-    public void setUid(String uid) {
-        this.uid = uid;
-    }
-
     public int getTicketNum() {
         return ticketNum;
     }
@@ -147,10 +141,35 @@ public class Order {
         this.ticketNum = ticketNum;
     }
 
+    public double getPrice() {
+        return price;
+    }
+
+    public void setPrice(double price) {
+        this.price = price;
+    }
+
+    public double getTotalPrice() {
+        return totalPrice;
+    }
+
+    public void setTotalPrice(double totalPrice) {
+        this.totalPrice = totalPrice;
+    }
+
+    public String getUid() {
+        return uid;
+    }
+
+    public void setUid(String uid) {
+        this.uid = uid;
+    }
+
     @Override
     public String toString() {
         return "Order{" +
             "oid='" + oid + '\'' +
+            ", orderTime='" + orderTime + '\'' +
             ", startTime='" + startTime + '\'' +
             ", endTime='" + endTime + '\'' +
             ", city='" + city + '\'' +
@@ -162,8 +181,9 @@ public class Order {
             ", image_b='" + image_b + '\'' +
             ", status=" + status +
             ", serialNum='" + serialNum + '\'' +
-            ", uid='" + uid + '\'' +
             ", ticketNum=" + ticketNum +
+            ", totalPrice=" + totalPrice +
+            ", uid='" + uid + '\'' +
             '}';
     }
 }

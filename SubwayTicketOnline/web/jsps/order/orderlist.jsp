@@ -95,35 +95,36 @@
 
             <!-- 导航 -->
             <ul class="nav nav-tabs">
+              <li class="active"><a href="#">全部订单</a></li>
               <li ><a href="#">未付款订单</a></li>
               <li ><a href="#">已付款订单</a></li>
-              <li class="active"><a href="#">已取消订单</a></li>
-              <li><a href="#">已失效订单</a></li>
-              <li><a href="#">全部订单</a></li>
+              <li ><a href="#">已取消订单</a></li>
+              <li ><a href="#">已失效订单</a></li>
             </ul>
 
-            <!-- title -->
+            <!-- Title -->
             <div class="order-item-title">
 
               <div class="order-item-title-col-1">
-                小票子
+                <span>小票子</span>
               </div>
 
               <div class="order-item-title-col-2">
-                单价
+                <span>单价</span>
               </div>
 
               <div class="order-item-title-col-3">
-                数量
+                <span>数量</span>
               </div>
 
               <div class="order-item-title-col-4">
-                交易状态
+                <span>交易状态</span>
               </div>
 
             </div>
+            <!-- / Title -->
 
-            <!-- item -->
+            <!-- Item -->
             <div class="order-item-detail" onclick="">
 
               <div class="order-item-detail-time">
@@ -170,9 +171,32 @@
 
                 </div>
               </div>
-
+              <!-- /Item -->
 
             </div>
+
+            <!-- Pagination -->
+
+            <nav style="text-align:center;">
+              <ul class="pagination" >
+                <li class="page-item disabled">
+                  <span class="page-link">Previous</span>
+                </li>
+                <li class="page-item"><a class="page-link" href="#">1</a></li>
+                <li class="page-item active">
+                    <span class="page-link">
+                      2
+                    <span class="sr-only">(current)</span>
+                    </span>
+                </li>
+                <li class="page-item"><a class="page-link" href="#">3</a></li>
+                <li class="page-item">
+                  <a class="page-link" href="#">Next</a>
+                </li>
+              </ul>
+            </nav>
+
+            <!-- /Pagination -->
 
 
 

@@ -17,7 +17,6 @@
     <link href="<c:url value='/css/bootstrap.min.css'/>" rel="stylesheet" type="text/css">
     <link href="<c:url value='/jsps/css/order/order.css'/>" rel="stylesheet" type="text/css">
 
-
     <title>订单-地铁</title>
   </head>
 
@@ -79,7 +78,7 @@
           <div class="station-container" style="height: 361.163px;">
 
             <div class="station-hd s-hd">
-              <i class=""></i>
+              <img src="<c:url value='/image/order/hdt.png'/>" />
               <span class="s-title">雨花台</span>
               <span style="font-size: 12px">至</span>
               <span class="s-title">仙林中心</span>
@@ -93,9 +92,6 @@
 
                 <ul class="s-clear">
                   <li class="ride">
-                  <a href="" class="cl-station">南京南</a>
-                </li>
-                  <li class="ride">
                     <a href="" class="cl-station">南京南</a>
                   </li>
                   <li class="ride">
@@ -115,6 +111,9 @@
                   </li>
                   <li class="ride">
                     <a href="" class="cl-station">南京南</a>
+                  </li>
+                  <li class="ride">
+                    <a href="" class="cl-station">南京南南京南南京南南京南</a>
                   </li>
 
                 </ul>
@@ -123,8 +122,9 @@
 
               <div class="s-info">
                 <dl>
-                  <dt>  
-                    <span>可换乘站点</span>
+                  <dt style="width: auto; height: auto">
+                    <img src="<c:url value='/image/order/changeS.png'/>" style="height: 80px; width: 80px;"/>
+
                   </dt>
 
                   <dd>
@@ -163,7 +163,7 @@
       <div class="order-right">
 
         <div class="order-ad clear-fix">
-
+          <img src="<c:url value='/image/order/title-ad.png'/>" />
         </div>
 
         <div class="order-content">
@@ -198,7 +198,7 @@
             </li>
             <li>
               <label>单价：</label>
-              <span>¥ 2.00 　　✖ 　2</span>
+              <span>¥ 2.00 　✖ 　2</span>
             </li>
             <li class="total">
               <label>总计：</label>
@@ -220,17 +220,34 @@
         <h4>特别提示：</h4>
         <ul>
           <li>1、下单前请仔细核对城市、线路、站点、时间等信息。</li>
-          <li>2、下单前请仔细核对城市、线路、站点、手机号等信息。</li>
-          <li>3、下单前请仔细核对城市、线路、站点、手机号等信息。</li>
-          <li>4、下单前请仔细核对城市、线路、站点、手机号等信息。</li>
+          <li>2、下单后请于5分钟内完成支付，超时系统将取消订单。</li>
+          <li>3、出发站点和目的站点为一样，则按2元票价。</li>
+          <li>4、地铁票售出后暂不支持退换。</li>
         </ul>
       </div>
 
       <div class="order-info">
-        <h4>注意：</h4>
+        <h4>友情信息：</h4><br/>
+
+        <p>http://blog.csdn.net/fanfan4569</p>
+        <p>客服电话：1111-12345678</p>
       </div>
 
     </div>
+
+    <br/>
+
+    <hr>
+
+    <!-- Footer -->
+    <footer>
+      <div class="row">
+        <div class="col-lg-12">
+          <p align="center">Copyright &copy;By Donald</p>
+        </div>
+      </div>
+      <!-- /.row -->
+    </footer>
 
   </body>
 

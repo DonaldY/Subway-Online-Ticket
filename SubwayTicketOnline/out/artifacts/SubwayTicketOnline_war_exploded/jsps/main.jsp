@@ -89,7 +89,7 @@
           <div class="m-search-box-inner clrfix" id="js-search-form">
             <form  class="form-inline" role="form" action="<c:url value='/OrderServlet'/>" method="post"
                    id="createOrder">
-              <input type="hidden" name="method" value="createOrder" />
+              <input type="hidden" name="method" value="confirmOrder" />
               <div class="form-appearance">
 
                 <div class="location-button">

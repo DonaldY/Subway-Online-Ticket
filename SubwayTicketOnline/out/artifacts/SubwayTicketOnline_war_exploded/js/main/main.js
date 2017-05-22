@@ -35,8 +35,17 @@ $(document).on('click',"#cityId li",function () {
 
 //fromPath-global and click-loading
 $(document).on('click',"#fromPath li",function () {
+
     var fromPath = $(this).text();
+
+    var inputPath = $("#inputFromPath").attr('value') ;
+
+    if (fromPath == inputPath) {
+        return;
+    }
+
     $("#inputFromPath").attr("value",fromPath);//fillfull
+    $("#inputFromStation").attr("value", "");
 
     var fromcid = $(this).attr('value');
     //loading children by ajax
@@ -48,11 +57,24 @@ $(document).on('click',"#fromPath li",function () {
         type:"POST",
         dataType:"json",
         success:function(arr){
+
             $("#fromStation").empty();
-            for(var i = 0; i < arr.length; ++i){
-                var li1 = '<li value='+ arr[i].sid +'>'+ arr[i].sname +'</li>';
-                $("#fromStation").append(li1);
+            $("#inputFromStation").attr("value", "");
+
+            if (arr == "" && arr.length == 0) {
+
+                var li = '<li>'+ "请选择目的线路" +'</li>';
+                $("#fromStation").append(li);
+
+            } else {
+
+                for(var i = 0; i < arr.length; ++i){
+                    var li1 = '<li value='+ arr[i].sid +'>'+ arr[i].sname +'</li>';
+                    $("#fromStation").append(li1);
+                }
+
             }
+
         }
     });
     showButton();
@@ -62,7 +84,15 @@ $(document).on('click',"#fromPath li",function () {
 //fromPath-global and click-loading
 $(document).on('click',"#toPath li",function () {
     var toPath = $(this).text();
+
+    var inputPath = $("#inputToPath").attr('value') ;
+
+    if (toPath == inputPath) {
+        return;
+    }
+
     $("#inputToPath").attr("value",toPath);//fillfull
+    $("#inputToStation").attr("value", "");
 
     var tocid = $(this).attr('value');
     //loading children by ajax
@@ -74,12 +104,25 @@ $(document).on('click',"#toPath li",function () {
         type:"POST",
         dataType:"json",
         success:function(arr){
+
             $("#toStation").empty();
-            for(var i = 0; i < arr.length; ++i){
-                var li1 = '<li value='+ arr[i].sid +'>'+ arr[i].sname +'</li>';
-                $("#toStation").append(li1);
+            $("inputToStation").attr("value", "");
+
+            if (arr == "" && arr.length == 0) {
+
+                var li = '<li>'+ "请选择目的线路" +'</li>';
+                $("#toStation").append(li);
+
+            } else {
+
+                for(var i = 0; i < arr.length; ++i){
+                    var li1 = '<li value='+ arr[i].sid +'>'+ arr[i].sname +'</li>';
+                    $("#toStation").append(li1);
+                }
+
             }
         }
+
     });
     showButton();
 });
@@ -255,7 +298,6 @@ function showButton() {
 
     if (isFillAllInput()) {
         $('#submit').attr("disabled",false);
-
     } else {
         $('#submit').attr("disabled",true);
     }

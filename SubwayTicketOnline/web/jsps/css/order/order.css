@@ -134,11 +134,11 @@ a:link,a:visited {
 .routeMap li.ride .cl-station {
     top: -39px;
     padding-top: 28px;
+    background: url("../image/hh.png")  no-repeat center -12px ;
 }
 
 .routeMap .cl-station {
     display: inline-block;
-
     position: relative;
     top: -36px;
     cursor: pointer;
