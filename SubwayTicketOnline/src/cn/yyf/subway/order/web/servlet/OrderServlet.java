@@ -143,7 +143,10 @@ public class OrderServlet extends BaseServlet {
 
         int status = getStatus(req);
 
-        System.out.println(status);
+        if (status < 0 || status > 4) {
+            System.out.println("error status.");
+            return null;
+        }
 
         String url = getUrl(req);
 
@@ -152,6 +155,8 @@ public class OrderServlet extends BaseServlet {
         PageBean<Order> pageBean = this.orderService.showOrderList(user.getUid(), currPageNum, status);
 
         pageBean.setUrl(url);
+
+        req.setAttribute("status", status);
 
         req.setAttribute("pageBean", pageBean);
 
@@ -189,9 +194,9 @@ public class OrderServlet extends BaseServlet {
      */
     private int getStatus(HttpServletRequest req) {
 
-        int status = 1;
+        int status = 0;
 
-        String parameter = req.getParameter("stauts");
+        String parameter = req.getParameter("status");
 
         if (parameter != null && !parameter.trim().isEmpty()) {
 

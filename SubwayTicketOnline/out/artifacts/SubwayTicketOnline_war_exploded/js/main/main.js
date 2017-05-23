@@ -95,6 +95,7 @@ $(document).on('click',"#toPath li",function () {
     $("#inputToStation").attr("value", "");
 
     var tocid = $(this).attr('value');
+
     //loading children by ajax
     $.ajax({
         async:true,

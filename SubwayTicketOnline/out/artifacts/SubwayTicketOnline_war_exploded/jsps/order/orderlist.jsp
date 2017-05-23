@@ -18,6 +18,8 @@
   <link href="<c:url value='/css/bootstrap.min.css'/>" rel="stylesheet" type="text/css">
   <link href="<c:url value='/jsps/css/order/orderlist.css'/>" rel="stylesheet" type="text/css">
 
+  <script src="<c:url value='/js/jquery-2.1.1.min.js'/>"></script>
+  <script src="<c:url value='/jsps/js/order/orderlist.js'/>"></script>
 
       <title>订单列表-地铁</title>
   </head>
@@ -94,13 +96,52 @@
             <br>
 
             <!-- 导航 -->
-            <ul class="nav nav-tabs">
-              <li class="active"><a href="#">全部订单</a></li>
-              <li ><a href="#">未付款订单</a></li>
-              <li ><a href="#">已付款订单</a></li>
-              <li ><a href="#">已取消订单</a></li>
-              <li ><a href="#">已失效订单</a></li>
+            <ul class="nav nav-tabs" id="nav-Y">
+
+              <c:choose>
+
+                <c:when test="${status eq 0}">
+                  <li class="active"><a href="<c:url value='/OrderServlet?method=showOrderList&status=0'/> ">全部订单</a></li>
+                </c:when>
+                <c:otherwise>
+                  <li class=""><a href="<c:url value='/OrderServlet?method=showOrderList&status=0'/> ">全部订单</a></li>
+                </c:otherwise>
+
+              </c:choose>
+              <c:choose>
+                <c:when test="${status eq 1}">
+                  <li class="active"><a href="<c:url value='/OrderServlet?method=showOrderList&status=1'/> ">未付款订单</a></li>
+                </c:when>
+                <c:otherwise>
+                  <li class=""><a href="<c:url value='/OrderServlet?method=showOrderList&status=1'/> ">未付款订单</a></li>
+                </c:otherwise>
+              </c:choose>
+              <c:choose>
+                <c:when test="${status eq 2}">
+                  <li class="active"><a href="<c:url value='/OrderServlet?method=showOrderList&status=2'/> ">已付款订单</a></li>
+                </c:when>
+                <c:otherwise>
+                  <li class=""><a href="<c:url value='/OrderServlet?method=showOrderList&status=2'/> ">已付款订单</a></li>
+                </c:otherwise>
+              </c:choose>
+              <c:choose>
+                <c:when test="${status eq 3}">
+                  <li class="active"><a href="<c:url value='/OrderServlet?method=showOrderList&status=3'/> ">已取消订单</a></li>
+                </c:when>
+                <c:otherwise>
+                  <li class=""><a href="<c:url value='/OrderServlet?method=showOrderList&status=3'/> ">已取消订单</a></li>
+                </c:otherwise>
+              </c:choose>
+              <c:choose>
+                <c:when test="${status eq 4}">
+                  <li class="active"><a href="<c:url value='/OrderServlet?method=showOrderList&status=4'/> ">已失效订单</a></li>
+                </c:when>
+                <c:otherwise>
+                  <li class=""><a href="<c:url value='/OrderServlet?method=showOrderList&status=4'/> ">已失效订单</a></li>
+                </c:otherwise>
+              </c:choose>
             </ul>
+            <!-- /导航 -->
 
             <!-- Title -->
             <div class="order-item-title">
@@ -175,23 +216,81 @@
             </c:forEach>
 
             <!-- Pagination -->
+            
+            <c:choose>
+              <c:when test="${pageBean.totalPageNum <= 3}">
+                <c:set var="begin" value="1"/>
+                <c:set var="end" value="${pageBean.totalPageNum}" />
+              </c:when>
+              <c:otherwise>
+                <c:set var="begin" value="${pageBean.currPageNum - 1}"/>
+                <c:set var="end" value="${pageBean.currPageNum + 1}"/>
+                <c:if test="${begin < 1}">
+                  <c:set var="begin" value="1"/>
+                  <c:set var="end" value="3"/>
+                </c:if>
+                <c:if test="${end > pageBean.totalPageNum}">
+                  <c:set var="begin" value="${pageBean.totalPageNum - 2}"/>
+                  <c:set var="end" value="${pageBean.totalPageNum}"/>
+                </c:if>
+              </c:otherwise>
+            </c:choose>
+
+            begin: ${begin} , end:${end}
 
             <nav style="text-align:center;">
               <ul class="pagination" >
-                <li class="page-item disabled">
-                  <span class="page-link">Previous</span>
-                </li>
-                <li class="page-item"><a class="page-link" href="#">1</a></li>
-                <li class="page-item active">
-                    <span class="page-link">
-                      2
-                    <span class="sr-only">(current)</span>
-                    </span>
-                </li>
-                <li class="page-item"><a class="page-link" href="#">3</a></li>
-                <li class="page-item">
-                  <a class="page-link" href="#">Next</a>
-                </li>
+
+                <c:choose>
+                  <c:when test="${pageBean.currPageNum eq 1}">
+                    <li class="page-item disabled">
+                      <span class="page-link">Previous</span>
+                    </li>
+                  </c:when>
+                  <c:otherwise>
+                    <li class="page-item">
+                      <a class="page-link" href="${pageBean.url}&currPageNum=${pageBean.currPageNum - 1}">Previous</a>
+                    </li>
+                  </c:otherwise>
+                </c:choose>
+
+                <c:forEach begin="${begin}" end="${end}" var="i">
+                  <c:choose>
+
+                    <c:when test="${i eq pageBean.currPageNum}">
+                      <li class="page-item active">
+                        <span class="page-link">
+                          ${i}
+                          <span class="sr-only">(current)</span>
+                        </span>
+                      </li>
+                    </c:when>
+
+                    <c:otherwise>
+                      <li class="page-item">
+                        <a class="page-link" href="${pageBean.url}&currPageNum=${i}">${i}</a>
+                      </li>
+                    </c:otherwise>
+
+                  </c:choose>
+                </c:forEach>
+
+
+                <c:choose>
+                  <c:when test="${pageBean.currPageNum eq pageBean.totalPageNum}">
+                    <li class="page-item disabled">
+                      <span class="page-link">Next</span>
+                    </li>
+                  </c:when>
+                  <c:otherwise>
+                    <li class="page-item">
+                      <a class="page-link" href="${pageBean.url}&currPageNum=${pageBean.currPageNum + 1}">Next</a>
+                    </li>
+                  </c:otherwise>
+                </c:choose>
+
+
+
               </ul>
             </nav>
 

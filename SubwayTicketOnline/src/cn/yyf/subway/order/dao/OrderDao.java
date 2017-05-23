@@ -35,7 +35,9 @@ public class OrderDao {
 
         exprList.add(new Expression("uid", "=", uid));
 
-        exprList.add(new Expression("status", "=", status + ""));
+        if (status != 0) {
+            exprList.add(new Expression("status", "=", status + ""));
+        }
 
         return findByCriteria(exprList, currPageNum);
 
