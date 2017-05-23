@@ -7,6 +7,6 @@ Desktop.ini
 *.jar
 *.sql
 *.iml
+*.properties
 .idea
 out	
-email_template.properties
