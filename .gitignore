@@ -9,3 +9,4 @@ Desktop.ini
 *.iml
 .idea
 out	
+email_template.properties
