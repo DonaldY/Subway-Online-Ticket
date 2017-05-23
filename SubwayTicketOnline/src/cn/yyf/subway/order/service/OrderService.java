@@ -1,7 +1,11 @@
 package cn.yyf.subway.order.service;
 
+import cn.itcast.jdbc.JdbcUtils;
 import cn.yyf.subway.order.dao.OrderDao;
+import cn.yyf.subway.order.domain.Order;
+import cn.yyf.subway.pager.PageBean;
 
+import java.sql.SQLException;
 import java.util.List;
 import java.util.Map;
 
@@ -17,5 +21,28 @@ public class OrderService {
 
         return null;
 
+    }
+
+    public PageBean<Order> showOrderList(String uid, int currPageNum, int status) {
+
+        try {
+
+            JdbcUtils.beginTransaction();
+
+            PageBean<Order> pageBean = this.orderDao.findOrderByUidAndStatus(uid, currPageNum, status);
+
+            JdbcUtils.commitTransaction();
+
+            return pageBean;
+
+        } catch (SQLException e) {
+            try {
+                JdbcUtils.rollbackTransaction();
+            } catch (SQLException e1) {
+                throw new RuntimeException(e);
+            }
+        }
+
+        return null;
     }
 }

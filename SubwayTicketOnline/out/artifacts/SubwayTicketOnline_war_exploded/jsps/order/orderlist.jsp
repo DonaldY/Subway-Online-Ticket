@@ -125,10 +125,11 @@
             <!-- / Title -->
 
             <!-- Item -->
+            <c:forEach items="${pageBean.beanList}" var="order">
             <div class="order-item-detail" onclick="">
 
               <div class="order-item-detail-time">
-                　<span style="font-weight: 700;">2017-5-2</span>　　<span>订单号：123456789</span>
+                　下单时间：<span style="font-weight: 700;">${order.orderTime}</span>　　<span>订单号：${order.oid}</span>
               </div>
 
               <div class="order-item-detail-items">
@@ -138,42 +139,40 @@
                 </div>
 
                 <div class="order-item-detail-items-station">
-                  <p><span>城市：</span><span>南京</span></p>
-                  <p class="station-row"><span >出发站：</span><span>仙林中心</span></p>
-                  <p class="station-row"><span>目的站：</span><span>雨花台</span></p>
+                  <p><span>城市：</span><span>${order.city}</span></p>
+                  <p class="station-row"><span >出发站：</span><span>${order.fromStation}</span></p>
+                  <p class="station-row"><span>目的站：</span><span>${order.toStation}</span></p>
                 </div>
 
                 <div class="order-item-detail-items-price">
                   <p class="price-row">
-                    <span style="">￥</span><span>4</span>
+                    <span style="">￥</span><span>${order.price}</span>
                   </p>
                 </div>
 
                 <div class="order-item-detail-items-num">
                   <p class="num-row">
-                    <span>2</span>
+                    <span>${order.ticketNum}</span>
                   </p>
                 </div>
 
                 <div class="order-item-detail-items-status">
                   <p class="status-row">
-                    <span>未付款</span>
+                    <span>
+                    <c:choose>
+                      <c:when test="${order.status eq 1}">未付款</c:when>
+                      <c:when test="${order.status eq 2}">已付款</c:when>
+                      <c:when test="${order.status eq 3}">已取消</c:when>
+                      <c:when test="${order.status eq 4}">已失效</c:when>
+                    </c:choose>
+                    </span>
                   </p>
-                  <%--<p class="status-row">
-                    <span>已付款</span>
-                  </p>
-                  <p class="status-row">
-                    <span>已取消</span>
-                  </p>
-                  <p class="status-row">
-                    <span>已失效</span>
-                  </p>--%>
-
                 </div>
+
               </div>
-              <!-- /Item -->
 
             </div>
+            </c:forEach>
 
             <!-- Pagination -->
 

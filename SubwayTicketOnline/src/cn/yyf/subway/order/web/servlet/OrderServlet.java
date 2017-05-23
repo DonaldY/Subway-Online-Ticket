@@ -4,6 +4,9 @@ import cn.itcast.commons.CommonUtils;
 import cn.itcast.servlet.BaseServlet;
 import cn.yyf.subway.order.domain.Order;
 import cn.yyf.subway.order.service.OrderService;
+import cn.yyf.subway.pager.PageBean;
+import cn.yyf.subway.user.domain.User;
+import com.sun.org.apache.xpath.internal.operations.Or;
 
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
@@ -117,5 +120,110 @@ public class OrderServlet extends BaseServlet {
 
         return "f:/jsps/order/order.jsp";
     }
+
+
+    /**
+     * 跳转orderlist
+     * @param req
+     * @param resp
+     * @return
+     * @throws ServletException
+     * @throws IOException
+     */
+    public String showOrderList(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+
+        /**
+         * 1. 得到当前页，默认：1
+         * 2. 得到url
+         * 3. 从当前session中获取User
+         * 4. 使用currPageNum和uid查数据，形成pageBeanList
+         * 5. pageBean设置url
+         */
+        int currPageNum = getCurrPageNum(req);
+
+        int status = getStatus(req);
+
+        System.out.println(status);
+
+        String url = getUrl(req);
+
+        User user = (User)req.getSession().getAttribute("sessionUser");
+
+        PageBean<Order> pageBean = this.orderService.showOrderList(user.getUid(), currPageNum, status);
+
+        pageBean.setUrl(url);
+
+        req.setAttribute("pageBean", pageBean);
+
+        return "f:/jsps/order/orderlist.jsp";
+    }
+
+    /**
+     * 获得当前页码
+     * @param req
+     * @return
+     */
+    private int getCurrPageNum(HttpServletRequest req) {
+
+        int currPageNum = 1;
+
+        String parameter = req.getParameter("currPageNum");
+
+        if (parameter != null && !parameter.trim().isEmpty()) {
+
+            try {
+                currPageNum = Integer.parseInt(parameter);
+            } catch (ClassCastException e) {
+                e.printStackTrace();
+            }
+
+        }
+
+        return currPageNum;
+    }
+
+    /**
+     * 获取订单状态
+     * @param req
+     * @return
+     */
+    private int getStatus(HttpServletRequest req) {
+
+        int status = 1;
+
+        String parameter = req.getParameter("stauts");
+
+        if (parameter != null && !parameter.trim().isEmpty()) {
+
+            try {
+                status = Integer.parseInt(parameter);
+            } catch (ClassCastException e) {
+                e.printStackTrace();
+            }
+
+        }
+
+        return status;
+    }
+
+    /**
+     * 截取url
+     * @param req
+     * @return
+     */
+    private String getUrl(HttpServletRequest req) {
+
+        String url = req.getRequestURI() + "?" + req.getQueryString();
+
+        /*存在currPageNum则截取*/
+        int index = url.lastIndexOf("&currPageNum=");
+
+        if (index != -1) {
+            url = url.substring(0, index);
+        }
+
+        return url;
+    }
+
 
 }

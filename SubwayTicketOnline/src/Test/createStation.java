@@ -7,13 +7,12 @@ import cn.itcast.commons.CommonUtils;
  */
 public class CreateStation {
     public static void main(String[] args) {
-        //System.out.println(CommonUtils.uuid());
 
-        //insert into s_book(sid, sname, cid, sitePrice, desc, orderBy)values ('', '', '', '', '', '');
+
         //String strl = "insert into s_category(cid,cname,pid,`desc`,orderBy) values ('"+CommonUtils.uuid()+"', '南京', NULL, '江苏南京', '1')";
         //System.out.println(strl);
 /*
-        String str[] = new String[]{"1号线", "2号线", "3号线", "10号线", "s1号线", "s2号线"};
+        String str[] = new String[]{"1号线", "2号线", "3号线", "10号线", "s1号线", "s8号线"};
         String str2[] = new String[]{"地铁1号线途径栖霞区、鼓楼区、玄武区、秦淮区、雨花台区和江宁区，线路北起迈皋桥站，沿南京主城区中轴线一路南下",
         "南京地铁2号线按建设启动时间分为一期工程和东延工程两段。2号线一期起于河西新区的油坊桥，止于紫金山麓的马群，线路贯穿南京主城区的东西向中轴线",
         "3号线全长44.9公里，线路途径浦口区、鼓楼区、玄武区、秦淮区、雨花台区和江宁区。共设置29座车站，其中林场站为高架站，其余28座车站均为地下站",

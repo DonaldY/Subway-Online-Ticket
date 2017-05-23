@@ -39,7 +39,7 @@
           <c:choose>
             <c:when test="${empty sessionScope.sessionUser}">
               <li>
-                <a href="" >关于我们</a>
+                <a href="#" >关于我们</a>
               </li>
             </c:when>
             <c:otherwise>
