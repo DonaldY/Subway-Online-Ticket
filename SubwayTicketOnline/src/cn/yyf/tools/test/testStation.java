@@ -1,6 +1,6 @@
 package cn.yyf.tools.test;
 
-import cn.yyf.tools.station.Calculate;
+import cn.yyf.tools.station.ShortestPath;
 import cn.yyf.tools.station.Station;
 import org.junit.Assert;
 import org.junit.Before;
@@ -16,11 +16,11 @@ import java.util.List;
  */
 public class testStation {
 
-    Calculate calculate;
+    ShortestPath shortestPath;
 
     @Before
     public void before() {
-        this.calculate = new Calculate();
+        this.shortestPath = new ShortestPath();
     }
 
     @Test
@@ -30,11 +30,11 @@ public class testStation {
 
         String str1 = "[南京南站,花神庙站,软件大道站]";
 
-        Assert.assertEquals(str, toListString(this.calculate.getShortestPath(new Station("南京南站"), new Station
+        Assert.assertEquals(str, toListString(this.shortestPath.getShortestPath(new Station("南京南站"), new Station
             ("油坊桥站")
         )));
 
-        Assert.assertEquals(str1, toListString(this.calculate.getShortestPath(new Station("南京南站"), new Station
+        Assert.assertEquals(str1, toListString(this.shortestPath.getShortestPath(new Station("南京南站"), new Station
             ("软件大道站")
         )));
 
@@ -72,7 +72,7 @@ public class testStation {
 
         String str = "[翠屏山站,花神庙站,双龙大道站,明发广场站,宏运大道站]";
 
-        Assert.assertEquals(str, toArrString(this.calculate.getLinkedStations(new Station("南京南站"))));
+        Assert.assertEquals(str, toArrString(this.shortestPath.getLinkedStations(new Station("南京南站"))));
 
 
     }

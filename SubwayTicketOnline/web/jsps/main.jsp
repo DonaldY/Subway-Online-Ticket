@@ -39,7 +39,7 @@
             <span class = "icon-bar"></span>
             <span class = "icon-bar"></span>
           </button>
-          <a class="navbar-brand" href="#">Subway</a>
+          <a class="navbar-brand" href="<c:url value='/jsps/main.jsp'/>">Subway</a>
         </div>
         <!-- Collect the nav links, forms, and other content for toggling -->
         <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
@@ -262,6 +262,7 @@
                     $('.form_date').datetimepicker('setStartDate', new Date());
 
                     $('#inputTime').attr('placeholder', (new Date().toLocaleDateString()).replace(/\//g, "-"));
+                    $('#inputTime').attr('value', (new Date().toLocaleDateString()).replace(/\//g, "-"));
 
                   </script>
 
@@ -273,7 +274,7 @@
                   <div class="submit-btn-appearance">
                     <button type="submit" class="btn btn-warning" style="font-size: 20px;" disabled="disabled"
                             id="submit">
-                      <span class="glyphicon glyphicon-check"></span> 　购　买　
+                      <span class="glyphicon glyphicon-check"></span> 　确　定　
                     </button>
                   </div>
                 </div>

@@ -33,7 +33,7 @@
             <span class = "icon-bar"></span>
             <span class = "icon-bar"></span>
           </button>
-          <a class="navbar-brand" href="#">Subway</a>
+          <a class="navbar-brand" href="<c:url value='/jsps/main.jsp'/>">Subway</a>
         </div>
         <!-- Collect the nav links, forms, and other content for toggling -->
         <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
@@ -79,11 +79,11 @@
 
             <div class="station-hd s-hd">
               <img src="<c:url value='/image/order/hdt.png'/>" />
-              <span class="s-title">雨花台</span>
+              <span class="s-title">${formOrder.fromStation}</span>
               <span style="font-size: 12px">至</span>
-              <span class="s-title">仙林中心</span>
+              <span class="s-title">${formOrder.toStation}</span>
               <span>途径站点</span>
-              <span class="s-title-num">共15站</span>
+              <span class="s-title-num">共 ${stationSize} 站</span>
             </div>
 
             <div class="station-mn">
@@ -91,55 +91,42 @@
               <div class="routeMap">
 
                 <ul class="s-clear">
-                  <li class="ride">
-                    <a href="" class="cl-station">南京南</a>
-                  </li>
-                  <li class="ride">
-                    <a href="" class="cl-station">南京南</a>
-                  </li>
-                  <li class="ride">
-                    <a href="" class="cl-station">南京南</a>
-                  </li>
-                  <li class="ride">
-                    <a href="" class="cl-station">南京南</a>
-                  </li>
-                  <li class="ride">
-                    <a href="" class="cl-station">南京南</a>
-                  </li>
-                  <li class="ride">
-                    <a href="" class="cl-station">南京南</a>
-                  </li>
-                  <li class="ride">
-                    <a href="" class="cl-station">南京南</a>
-                  </li>
-                  <li class="ride">
-                    <a href="" class="cl-station">南京南南京南南京南南京南</a>
-                  </li>
+
+                  <c:forEach items="${pathList}" var="station">
+                    <li class="ride">
+                      <a href="" class="cl-station">${station.name}</a>
+                    </li>
+                  </c:forEach>
 
                 </ul>
 
               </div>
 
-              <div class="s-info">
-                <dl>
-                  <dt style="width: auto; height: auto">
-                    <img src="<c:url value='/image/order/changeS.png'/>" style="height: 80px; width: 80px;"/>
+              <c:choose>
+                <c:when test="${stationSize < 18}">
+                  <div class="s-info">
+                    <dl>
+                      <dt style="width: auto; height: auto">
+                        <img src="<c:url value='/image/order/changeS.png'/>" style="height: 80px; width: 80px;"/>
 
-                  </dt>
+                      </dt>
 
-                  <dd>
-                    <ul>
+                      <dd>
+                        <ul>
 
-                      <li>
-                        <span>新街口</span>
-                        <span>-></span>
-                        <span>3号线</span>
-                      </li>
+                          <li>
+                            <span>新街口</span>
+                            <span>-></span>
+                            <span>3号线</span>
+                          </li>
 
-                    </ul>
-                  </dd>
-                </dl>
-              </div>
+                        </ul>
+                      </dd>
+                    </dl>
+                  </div>
+                </c:when>
+              </c:choose>
+
 
             </div>
 
@@ -149,10 +136,11 @@
 
         <div class="order-choose-info">
           <ul class="clear-fix">
-            <li>中转站点</li>
-            <li>中转站点</li>
-            <li>中转站点</li>
-            <li>中转站点</li>
+            <li><span class="s-s-icon"></span>站点</li>
+            <li><span class="s-trans-icon"></span>中转站点</li>
+            <li><span class="s-bus-icon"></span>可转乘公交</li>
+            <li><span class="s-train-icon"></span>可转乘火车</li>
+            <li><span class="s-plane-icon"></span>可转乘飞机</li>
           </ul>
 
         </div>
@@ -169,40 +157,40 @@
         <div class="order-content">
           <ul>
             <li>
-              <label>目标城市：</label>
-              <strong>南京</strong>
+              <label>坐标城市：</label>
+              <strong>${formOrder.city}</strong>
             </li>
             <li>
               <label>出发线路：</label>
-              <strong>南京</strong>
+              <strong>${formOrder.fromPath}</strong>
             </li>
             <li>
               <label>出发站点：</label>
-              <strong>南京</strong>
+              <strong>${formOrder.fromStation}</strong>
             </li>
             <li>
               <label>目的线路：</label>
-              <strong>南京</strong>
+              <strong>${formOrder.toPath}</strong>
             </li>
             <li>
               <label>目的站点：</label>
-              <strong>南京</strong>
+              <strong>${formOrder.toStation}</strong>
             </li>
             <li>
               <label>使用时间：</label>
-              <em>2017-5-20</em>
+              <em>${formOrder.startTime}</em>
             </li>
             <li class="line">
               <label>座位：</label>
-              <strong>老、幼、病、残先坐</strong>
+              <strong>老、幼、病、残、孕先坐</strong>
             </li>
             <li>
               <label>单价：</label>
-              <span>¥ 2.00 　✖ 　2</span>
+              <span>¥ ${formOrder.price} 　✖ 　${formOrder.ticketNum}</span>
             </li>
             <li class="total">
               <label>总计：</label>
-              <div>¥ 4.00</div>
+              <div>¥ ${formOrder.totalPrice}</div>
             </li>
           </ul>
           <div class="order-submit">
@@ -236,8 +224,6 @@
     </div>
 
     <br/>
-
-    <hr>
 
     <!-- Footer -->
     <footer>

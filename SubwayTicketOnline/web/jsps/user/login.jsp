@@ -43,7 +43,7 @@
       </ul>
       <ul class="container-right">
         <li class="container-right-item">
-          <a href="#" >首页</a>
+          <a href="<c:url value='/jsps/main.jsp'/>" >首页</a>
         </li>
         <li class="container-seperator"></li>
         <li class="container-right-item">

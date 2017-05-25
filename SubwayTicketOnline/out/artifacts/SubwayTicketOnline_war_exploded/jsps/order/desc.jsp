@@ -33,7 +33,7 @@
             <span class = "icon-bar"></span>
             <span class = "icon-bar"></span>
           </button>
-          <a class="navbar-brand" href="#">Subway</a>
+          <a class="navbar-brand" href="<c:url value='/jsps/main.jsp'/>">Subway</a>
         </div>
         <!-- Collect the nav links, forms, and other content for toggling -->
         <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">

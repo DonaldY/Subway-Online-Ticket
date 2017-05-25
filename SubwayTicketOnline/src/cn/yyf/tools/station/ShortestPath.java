@@ -5,7 +5,7 @@ import java.util.*;
 /**
  * Created by DonaldY on 2017/5/19.
  */
-public class Calculate {
+public class ShortestPath {
 
     private List<Station> visitedList = new ArrayList<Station>();
     

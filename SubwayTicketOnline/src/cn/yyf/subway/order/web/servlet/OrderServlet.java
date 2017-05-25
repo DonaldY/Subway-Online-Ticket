@@ -6,15 +6,20 @@ import cn.yyf.subway.order.domain.Order;
 import cn.yyf.subway.order.service.OrderService;
 import cn.yyf.subway.pager.PageBean;
 import cn.yyf.subway.user.domain.User;
-import com.sun.org.apache.xpath.internal.operations.Or;
+import cn.yyf.tools.station.PathBuilder;
+import cn.yyf.tools.station.Station;
+import com.sun.org.apache.bcel.internal.generic.IF_ACMPEQ;
 
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 import java.io.IOException;
+import java.text.DecimalFormat;
+import java.util.LinkedHashSet;
 import java.util.List;
 import java.util.Map;
+
 
 /**
  * Created by DonaldY on 2017/5/4.
@@ -22,6 +27,52 @@ import java.util.Map;
 public class OrderServlet extends BaseServlet {
 
     private OrderService orderService = new OrderService();
+
+    public String confirmOrder(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+
+        Order formOrder = CommonUtils.toBean(req.getParameterMap(), Order.class);
+
+        LinkedHashSet<Station> list = PathBuilder.getShortestPath(formOrder.getFromStation(), formOrder.getToStation());
+
+        double price = calulatePriceByList(list);
+
+        formOrder.setPrice(price);
+
+        formOrder.setTotalPrice(price * formOrder.getTicketNum());
+
+        req.setAttribute("formOrder", formOrder);
+
+        req.setAttribute("stationSize", list.size());
+
+        req.setAttribute("pathList", list);
+
+        return "f:/jsps/order/order.jsp";
+    }
+
+    private double calulatePriceByList(LinkedHashSet<Station> list) {
+
+        DecimalFormat format = new DecimalFormat("#.00");
+
+        double price = 2;
+
+        if (list.size() > 4) {
+
+            int extra = 0;
+
+            if ((list.size() - 4) / 3 > 0){
+                extra += list.size() / 3;
+            }
+
+            if ((list.size() - 4) % 3 != 0) {
+                extra ++;
+            }
+
+            price += extra;
+
+        }
+
+        return Double.parseDouble(format.format(price));
+    }
 
     public String createOrder(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 
@@ -100,28 +151,6 @@ public class OrderServlet extends BaseServlet {
 
     }
 
-    public String confirmOrder(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-
-        Order formOrder = CommonUtils.toBean(req.getParameterMap(), Order.class);
-
-       /* String msg = validateOrder(formOrder, req.getSession());
-
-        if (msg != "" && msg.length() != 0) {
-            return "f:/jsps/main.jsp";
-        }*/
-
-        System.out.println(formOrder);
-
-        /**
-         * 生成最短路径
-         * 1. 
-         */
-
-
-        return "f:/jsps/order/order.jsp";
-    }
-
-
     /**
      * 跳转orderlist
      * @param req
@@ -145,7 +174,7 @@ public class OrderServlet extends BaseServlet {
 
         if (status < 0 || status > 4) {
             System.out.println("error status.");
-            return null;
+            return "f:/jsps/main.jsp";
         }
 
         String url = getUrl(req);
@@ -153,6 +182,12 @@ public class OrderServlet extends BaseServlet {
         User user = (User)req.getSession().getAttribute("sessionUser");
 
         PageBean<Order> pageBean = this.orderService.showOrderList(user.getUid(), currPageNum, status);
+
+        if (currPageNum > pageBean.getTotalPageNum()) {
+            pageBean.setCurrPageNum(1);
+        }
+
+        System.out.println("totalPageNum: " + pageBean.getTotalPageNum());
 
         pageBean.setUrl(url);
 

@@ -5,13 +5,12 @@ div {
 body {
     background: #FFF;
     color: #333;
-    font-size: 12px;
     line-height: 20px;
     padding-top: 70px;
 }
 
 body, button, input, select, textarea {
-    font: 12px/1.5 "Microsoft Yahei","Hiragino Sans GB",tahoma,arial;
+
 }
 
 button,form, h1, h2, h3, h4, h5, h6, hr, input, legend, li, ol, p, pre, td, textarea, th, ul {
@@ -24,6 +23,7 @@ a:link,a:visited {
 }
 
 .center-wrap {
+    font: 12px/1.5 "Microsoft Yahei","Hiragino Sans GB",tahoma,arial;
     width: 990px;
     min-width: 990px;
     margin: 0 auto;
@@ -109,6 +109,7 @@ a:link,a:visited {
 }
 
 .routeMap {
+    display: block;
     height: 300px;
 }
 
@@ -124,17 +125,18 @@ a:link,a:visited {
 }
 
 .routeMap li {
+    display: block;
     float: left;
     border-top: 5px solid #20A4D1;
-    height: 42px;
+    height: 80px;
     position: relative;
-    padding: 25px 20px 0;
+    padding: 13px 20px 0;
 }
 
 .routeMap li.ride .cl-station {
-    top: -39px;
-    padding-top: 28px;
-    background: url("../image/hh.png")  no-repeat center -12px ;
+    top: -51px;
+    padding-top: 50px;
+    background: url("../image/plane-icon.png")  no-repeat center  ;
 }
 
 .routeMap .cl-station {
@@ -197,7 +199,6 @@ a:link,a:visited {
 
 
 
-
 .order-choose-info {
     margin: 0 20px 0;
     border-top: 1px #e5e5e5 solid;
@@ -216,9 +217,9 @@ ul, menu, dir {
 }
 
 .order-choose-info li {
-    padding: 0 10px 0 30px;
+    padding: 0 10px 0 25px;
     float: left;
-    line-height: 25px;
+    line-height: 30px;
 }
 
 li {
@@ -231,6 +232,52 @@ li {
     display: block;
     font-weight: bold;
 }
+
+.s-s-icon {
+    margin-right: 10px;
+    width: 30px;
+    height: 30px;
+    float: left;
+    background: url(//localhost:8080/SubwayTicketOnline/image/order/s-icon.png) no-repeat center;
+}
+
+
+.s-trans-icon {
+    margin-right: 10px;
+    width: 30px;
+    height: 30px;
+    float: left;
+    background: url(//localhost:8080/SubwayTicketOnline/image/order/trans-icon.png) no-repeat center;
+}
+
+.s-bus-icon {
+    margin-right: 10px;
+    width: 30px;
+    height: 30px;
+    float: left;
+    background: url(//localhost:8080/SubwayTicketOnline/image/order/bus-icon.png) no-repeat center;
+}
+
+.s-train-icon {
+    margin-right: 10px;
+    width: 30px;
+    height: 30px;
+    float: left;
+    background: url(//localhost:8080/SubwayTicketOnline/image/order/train-icon.png) no-repeat center;
+}
+
+.s-plane-icon {
+    margin-right: 10px;
+    width: 30px;
+    height: 30px;
+    float: left;
+    background: url(//localhost:8080/SubwayTicketOnline/image/order/plane-icon.png) no-repeat center;
+}
+
+
+
+
+
 
 
 /*------right--------*/
