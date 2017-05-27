@@ -137,10 +137,10 @@
         <div class="order-choose-info">
           <ul class="clear-fix">
             <li><span class="s-s-icon"></span>站点</li>
-            <li><span class="s-trans-icon"></span>中转站点</li>
-            <li><span class="s-bus-icon"></span>可转乘公交</li>
-            <li><span class="s-train-icon"></span>可转乘火车</li>
-            <li><span class="s-plane-icon"></span>可转乘飞机</li>
+            <li><span class="s-trans-icon"></span>换乘站</li>
+            <li><span class="s-bus-icon"></span>公交</li>
+            <li><span class="s-train-icon"></span>国铁专线</li>
+            <li><span class="s-plane-icon"></span>飞机</li>
           </ul>
 
         </div>

@@ -8,7 +8,7 @@ body {
     padding-right: 15px;
     padding-left: 15px;
     width: 750px;
-    height: 750px;
+    height: 760px;
     min-height: 750px;
     min-width: 750px;
     border: 1px solid #ddd;
@@ -21,7 +21,7 @@ body {
 }
 
 .order-content-up {
-     width: 50%;
+     width: 63%;
      height: 54%;
      margin: 20px auto;
      background-color: #edf0ff;
@@ -33,8 +33,8 @@ body {
 }
 
 .order-content-down {
-    width: 50%;
-    height: 36%;
+    width: 63%;
+    height: 40%;
     margin: 20px auto;
     background-color: #edf0ff;
     border: 1px solid #ddd;
@@ -92,13 +92,14 @@ body {
 }
 
 .order-text-row-headline {
-    height: 40px;
+    height: 35px;
     text-align:center;
     display: block;
     padding: 4px;
     margin-bottom: 5px;
 
-    font-size: 17px;
+    font-size: 14px;
+    font-weight:700;
 
     border-bottom: 1px #ddd solid;
 }

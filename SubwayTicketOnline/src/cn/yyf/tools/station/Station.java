@@ -10,12 +10,27 @@ public class Station {
 
     public Station next;
 
+    /**
+     * 0: 普通站点, 1: 中转站, 2: 转乘公交
+     * 3: 转乘火车，4: 转乘飞机
+     */
+    private int status;
+
     public Station (String name){
         this.name = name;
     }
 
+    public Station (String name, int status) {
+        this.name = name;
+        this.status = status;
+    }
+
     public String getName() {
         return name;
+    }
+
+    public int getStatus() {
+        return status;
     }
 
     @Override
