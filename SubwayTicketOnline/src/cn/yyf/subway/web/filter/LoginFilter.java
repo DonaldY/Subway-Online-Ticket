@@ -30,12 +30,13 @@ public class LoginFilter implements Filter{
         Object user = req.getSession().getAttribute("sessionUser");
 
         if (user == null) {
-            req.setAttribute("code", "error");
-            req.setAttribute("msg", "Please login first.");
-            req.getRequestDispatcher("/jsps/msg.jsp").forward(req, servletResponse);
-        } else {
-            filterChain.doFilter(req, servletResponse);
+
+            req.getRequestDispatcher("/jsps/user/login.jsp").forward(req, servletResponse);
+
         }
+
+        filterChain.doFilter(req, servletResponse);
+
     }
 
     @Override

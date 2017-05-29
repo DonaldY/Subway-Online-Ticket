@@ -45,4 +45,37 @@ public class OrderService {
 
         return null;
     }
+
+    public Order loadOrder(String oid) {
+
+        try {
+            JdbcUtils.beginTransaction();
+            Order order = this.orderDao.loadOrder(oid);
+            JdbcUtils.commitTransaction();
+            return order;
+        } catch (SQLException e) {
+            try {
+                JdbcUtils.rollbackTransaction();
+            } catch (SQLException e1) {}
+            throw new RuntimeException(e);
+        }
+    }
+
+    public int findStatus(String oid) {
+        try {
+            return this.orderDao.findStatus(oid);
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
+    }
+
+    public void updateStatus(String oid, int status) {
+        try {
+            this.orderDao.updateStatus(oid, status);
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
+    }
+
+
 }

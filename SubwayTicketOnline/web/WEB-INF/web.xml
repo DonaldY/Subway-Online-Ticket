@@ -50,6 +50,7 @@
         <url-pattern>/OrderServlet</url-pattern>
     </servlet-mapping>
 
+    <!-- 登录过滤 -->
     <filter>
         <display-name>LoginFilter</display-name>
         <filter-name>LoginFilter</filter-name>
@@ -64,6 +65,20 @@
         <servlet-name>OrderServlet</servlet-name>
     </filter-mapping>
 
+    <!-- 确认订单过滤 -->
+    <filter>
+        <display-name>OrderFilter</display-name>
+        <filter-name>OrderFilter</filter-name>
+        <filter-class>cn.yyf.subway.web.filter.OrderFilter</filter-class>
+    </filter>
+    <filter-mapping>
+        <filter-name>OrderFilter</filter-name>
+        <url-pattern>/jsps/order/order.jsp</url-pattern>
+    </filter-mapping>
+    <filter-mapping>
+        <filter-name>OrderFilter</filter-name>
+        <url-pattern>/jsps/order/desc.jsp</url-pattern>
+    </filter-mapping>
 
 
 </web-app>

@@ -55,7 +55,7 @@
                   <a href="#"><span class="glyphicon glyphicon-user div-user"></span> ${sessionScope.sessionUser.username}</a>
                 </li>
                 <li>
-                  <a href="#">我的订单</a>
+                  <a href="<c:url value='/OrderServlet?method=showOrderList&status=0'/>">我的订单</a>
                 </li>
                 <li>
                   <a href="<c:url value='/UserServlet?method=quit'/> ">退出</a>
@@ -81,7 +81,7 @@
           </div>
 
           <div class="order-thumbnail">
-            <spen class="order-text-serial-number">序列号：1704201205XXXX</spen>
+            <spen class="order-text-serial-number">序列号：${order.serialNum}</spen>
           </div>
 
         </div>
@@ -92,31 +92,31 @@
 
             <div class="order-text-row-headline">
               <div class="order-text-city">
-                <span>城市：</span><span>南京</span>
+                <span>城市：</span><span>${order.city}</span>
               </div>
 
               <div class="order-text-time">
-                <span>时间：</span><span>2017-4-23</span>
+                <span>时间：</span><span>${order.orderTime}</span>
               </div>
             </div>
 
             <div class="order-text-row text-station">
               <div class="order-text-from">
-                <span>出发路线：</span><span>1号线</span>
+                <span>出发路线：</span><span>${order.fromPath}</span>
               </div>
 
               <div class="order-text-to">
-                <span>目的路线：</span><span>1号线</span>
+                <span>目的路线：</span><span>${order.toPath}</span>
               </div>
             </div>
 
             <div class="order-text-row text-station">
               <div class="order-text-from">
-                <span>出发站点：</span><span>仙林中心</span>
+                <span>出发站点：</span><span>${order.fromStation}</span>
               </div>
 
               <div class="order-text-to">
-                <span>目的站点：</span><span>雨花台</span>
+                <span>目的站点：</span><span>${order.toStation}</span>
               </div>
             </div>
 
@@ -124,17 +124,17 @@
             <div class="order-text-orderItem" style="background: url(<c:url value="/image/payBj-2.png" />) no-repeat">
               <div class="order-text-row">
                 <div class="order-text-number">
-                  单价：¥ <span>3</span>
+                  单价：¥ <span>${order.price}</span>
                 </div>
               </div>
               <div class="order-text-row">
                 <div class="order-text-price">
-                  <span>✖  　　　</span><span>8</span>
+                  <span>✖  　　　</span><span>${order.ticketNum}</span>
                 </div>
               </div>
               <div class="order-text-row">
                 <div class="order-text-pay">
-                  小计：<span style="color: orangered" > ¥ <span style="font-size: 17px">24</span></span>
+                  小计：<span style="color: orangered" > ¥ <span style="font-size: 17px">${order.totalPrice}</span></span>
                 </div>
               </div>
             </div>
@@ -142,11 +142,30 @@
 
           </div>
 
+
+
+
           <div class="order-text-button">
-            <button type="button" class="btn btn-success" style="font-size: 20px;font-weight: 700;font-family: Microsoft
+
+
+            <c:if test="${order.status eq 1 and btn eq 'pay'}">
+              <a href="<c:url value='/OrderServlet?method=paymentPre&oid=${order.oid }'/>">
+                <button type="button" class="btn btn-success" style="font-size: 20px;font-weight: 700;font-family: Microsoft
             YaHei;width: 439.23px;">
-              <span class="glyphicon glyphicon-check"></span>　直接支付
-            </button>
+                  <span class="glyphicon glyphicon-check"></span>　直接支付
+                </button>
+              </a>
+            </c:if>
+
+            <c:if test="${order.status eq 1 and btn eq 'cancel'}">
+              <a id="cancel" href="<c:url value='/OrderServlet?method=cancel&oid=${order.oid }'/>">
+                <button type="button" class="btn btn-warning" style="font-size: 20px;font-weight: 700;font-family: Microsoft
+            YaHei;width: 439.23px;">
+                  <span class="glyphicon glyphicon-check"></span>　取消订单
+                </button>
+              </a>
+            </c:if>
+
           </div>
 
         </div>

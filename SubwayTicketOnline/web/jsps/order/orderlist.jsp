@@ -59,7 +59,7 @@
                   <a href="#"><span class="glyphicon glyphicon-user div-user"></span> ${sessionScope.sessionUser.username}</a>
                 </li>
                 <li>
-                  <a href="#">我的订单</a>
+                  <a href="<c:url value='/OrderServlet?method=showOrderList&status=0'/>">我的订单</a>
                 </li>
                 <li>
                   <a href="<c:url value='/UserServlet?method=quit'/> ">退出</a>
@@ -162,12 +162,17 @@
                 <span>交易状态</span>
               </div>
 
+              <div class="order-item-detail-col-5">
+                <span>操作</span>
+              </div>
+
+
             </div>
             <!-- / Title -->
 
             <!-- Item -->
             <c:forEach items="${pageBean.beanList}" var="order">
-            <div class="order-item-detail" onclick="">
+            <div class="order-item-detail">
 
               <div class="order-item-detail-time">
                 　下单时间：<span style="font-weight: 700;">${order.orderTime}</span>　　<span>订单号：${order.oid}</span>
@@ -206,6 +211,19 @@
                       <c:when test="${order.status eq 3}">已取消</c:when>
                       <c:when test="${order.status eq 4}">已失效</c:when>
                     </c:choose>
+                    </span>
+                  </p>
+                </div>
+
+                <div class="order-item-detail-items-operate">
+                  <p class="operate-row">
+                    <span>
+                      <p><a href="<c:url value='/OrderServlet?method=loadOrder&oid=${order.oid }' />">查看</a></p>
+                      <c:if test="${order.status eq 1 }">
+                        <p><a href="<c:url value='/OrderServlet?method=paymentPre&oid=${order.oid }&btn=pay' />">支付
+                        </a></p>
+                        <p><a href="<c:url value='/OrderServlet?method=loadOrder&oid=${order.oid }&btn=cancel'/>">取消</a></p>
+                      </c:if>
                     </span>
                   </p>
                 </div>

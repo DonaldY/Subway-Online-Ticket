@@ -53,7 +53,7 @@
                 <a href="#"><span class="glyphicon glyphicon-user div-user"></span> ${sessionScope.sessionUser.username}</a>
               </li>
               <li>
-                <a href="#">我的订单</a>
+                <a href="<c:url value='/OrderServlet?method=showOrderList&status=0'/>">我的订单</a>
               </li>
               <li>
                 <a href="<c:url value='/UserServlet?method=quit'/> ">退出</a>

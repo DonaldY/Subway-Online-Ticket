@@ -187,8 +187,6 @@ public class OrderServlet extends BaseServlet {
             pageBean.setCurrPageNum(1);
         }
 
-        System.out.println("totalPageNum: " + pageBean.getTotalPageNum());
-
         pageBean.setUrl(url);
 
         req.setAttribute("status", status);
@@ -263,6 +261,59 @@ public class OrderServlet extends BaseServlet {
         }
 
         return url;
+    }
+
+    /**
+     * 加载订单
+     * @param req
+     * @param resp
+     * @return
+     * @throws ServletException
+     * @throws IOException
+     */
+    public String loadOrder(HttpServletRequest req, HttpServletResponse resp)
+        throws ServletException, IOException {
+
+        String oid = req.getParameter("oid");
+
+        Order order = orderService.loadOrder(oid);
+
+        req.setAttribute("order", order);
+
+        //btn说明了用户点击哪个超链接来访问本方法的
+        String btn = req.getParameter("btn");
+
+        req.setAttribute("btn", btn);
+
+        return "/jsps/order/desc.jsp";
+    }
+
+    /**
+     * 取消订单
+     * @param req
+     * @param resp
+     * @return
+     * @throws ServletException
+     * @throws IOException
+     */
+    public String cancel(HttpServletRequest req, HttpServletResponse resp)
+        throws ServletException, IOException {
+
+        String oid = req.getParameter("oid");
+
+		//校验订单状态
+        int status = orderService.findStatus(oid);
+        if(status != 1) {
+            req.setAttribute("code", "error");
+            req.setAttribute("msg", "Status is error!");
+            return "f:/jsps/msg.jsp";
+        }
+
+        //设置状态为取消
+        orderService.updateStatus(oid, 5);
+        req.setAttribute("code", "success");
+        req.setAttribute("msg", "The order is cancel");
+        return "f:/jsps/msg.jsp";
     }
 
 

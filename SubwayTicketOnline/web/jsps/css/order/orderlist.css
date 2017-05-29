@@ -62,8 +62,15 @@ body {
     float: left;
     margin-top: 5px;
     margin-bottom: 5px;
-    width: 30%;
+    width: 15%;
 
+}
+
+.order-item-detail-col-5 {
+    float: left;
+    margin-top: 5px;
+    margin-bottom: 5px;
+    width: 15%;
 }
 
 .order-item-detail {
@@ -152,7 +159,20 @@ body {
 .order-item-detail-items-status {
     display: block;
     float: left;
-    width: 240px;
+    width: 124.13px;
     higth: 100px;
     line-height: 1;
+}
+
+.order-item-detail-items-operate {
+    display: block;
+    float: left;
+    width: 110px;
+    higth: 100px;
+    line-height: 1;
+}
+
+.operate-row {
+    float: left;
+    display: block;
 }

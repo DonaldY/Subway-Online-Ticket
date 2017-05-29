@@ -7,6 +7,7 @@ import cn.yyf.subway.pager.PageBean;
 import cn.yyf.subway.pager.PageConstants;
 import com.sun.org.apache.xpath.internal.operations.Or;
 import org.apache.commons.dbutils.QueryRunner;
+import org.apache.commons.dbutils.handlers.BeanHandler;
 import org.apache.commons.dbutils.handlers.BeanListHandler;
 import org.apache.commons.dbutils.handlers.ScalarHandler;
 
@@ -105,4 +106,43 @@ public class OrderDao {
         return pageBean;
     }
 
+    /**
+     * 按oid加载订单
+     * @param oid
+     * @return
+     * @throws SQLException
+     */
+    public Order loadOrder(String oid) throws SQLException {
+
+        String sql = "select * from s_order where oid=?";
+
+        Order order = qr.query(sql, new BeanHandler<Order>(Order.class), oid);
+
+        return order;
+
+    }
+
+    /**
+     * 按oid找status
+     * @param oid
+     * @return
+     * @throws SQLException
+     */
+    public int findStatus(String oid) throws SQLException {
+
+        String sql = "select status from s_order where oid=?";
+
+        Number number = (Number)qr.query(sql, new ScalarHandler(), oid);
+
+        return number.intValue();
+
+    }
+
+    public void updateStatus(String oid, int status) throws SQLException {
+
+        String sql = "update s_order set status=? where oid=?";
+
+        qr.update(sql, status, oid);
+
+    }
 }
