@@ -40,6 +40,17 @@ public class testStation {
 
     }
 
+    @Test
+    public void testException() {
+
+        Station fromStation = new Station("南京紫金站");
+        Station toStation = new Station("仙林中心站");
+
+        Assert.assertEquals("[]", toListString(this.shortestPath.getShortestPath(fromStation, toStation)));
+
+
+    }
+
     private String toListString(LinkedHashSet<Station> stations) {
 
         StringBuffer buffer = new StringBuffer();

@@ -42,6 +42,9 @@ public class UserService {
         user.setUid(CommonUtils.uuid());
         user.setStatus(false);
         user.setActivationCode(CommonUtils.uuid() + CommonUtils.uuid());
+
+        System.out.println(user);
+
         try{
             userDao.add(user);
         }catch(SQLException e){

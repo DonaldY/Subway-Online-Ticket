@@ -15,9 +15,25 @@ public class ShortestPath {
 
     public LinkedHashSet<Station> getShortestPath(Station fromStation,  Station toStation) {
 
+        if (fromStation.getName().equals(toStation.getName())) {
+
+            LinkedHashSet<Station> list = new LinkedHashSet<>();
+
+            list.add(fromStation);
+
+            return list;
+
+        }
+
         calculate(fromStation, toStation);
 
-        return this.stationsMap.get(fromStation).get(toStation);
+        LinkedHashSet<Station> list = this.stationsMap.get(fromStation).get(toStation);
+
+        if (list == null || list.isEmpty()) {
+            return new LinkedHashSet<Station>();
+        }
+
+        return list;
 
     }
 
@@ -194,7 +210,8 @@ public class ShortestPath {
 
 
 
-    ////////////////////////////////Backup/////////////////////////////////////
+    ////////////////////////////////Backup
+    // ///////////////////////////////////
 
 
 

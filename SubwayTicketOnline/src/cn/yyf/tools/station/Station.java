@@ -20,10 +20,10 @@ public class Station {
         this.name = name;
     }
 
-   /* public Station (String name, int status) {
+    public Station (String name, int status) {
         this.name = name;
         this.status = status;
-    }*/
+    }
 
     public String getName() {
         return name;

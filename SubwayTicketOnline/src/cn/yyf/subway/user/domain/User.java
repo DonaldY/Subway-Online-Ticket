@@ -7,11 +7,11 @@ public class User {
     private String uid;
     private String username;
     private String userpasswd;
-    private String reuserpasswd;//注册表单
+    private String reuserpasswd;    //注册表单
     private String email;
-    private String verifyCode;	//验证码
-    private boolean status; //1位激活
-    private String activationCode; // 激活码
+    private String verifyCode;	    //验证码
+    private boolean status;         //1位激活
+    private String activationCode;  // 激活码
 
     public User() {
     }

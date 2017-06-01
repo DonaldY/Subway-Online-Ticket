@@ -78,9 +78,9 @@ public class OrderServlet extends BaseServlet {
 
         Order formOrder = CommonUtils.toBean(req.getParameterMap(), Order.class);
 
-        String msg = validateOrder(formOrder, req.getSession());
+        Boolean bool = validateOrder(formOrder, req.getSession());
 
-        if (msg != "" && msg.length() != 0) {
+        if (bool == false) {
             return "f:/jsps/main.jsp";
         }
 
@@ -101,54 +101,68 @@ public class OrderServlet extends BaseServlet {
         return "f:/jsps/order/desc.jsp";
     }
 
-    private String validateOrder(Order order, HttpSession session) {
+    private Boolean validateOrder(Order order, HttpSession session) {
 
-        if (order.getCity() == "" || order.getCity().length() == 0) {
-            return "City error!";
-        }
-        
-        if (order.getFromPath() == "" || order.getFromPath().length() == 0) {
-            return "From path error!";
-        }
-        
-        if (order.getToPath() == "" || order.getToPath().length() == 0) {
-            return "To path error!";
-        }
-        
-        if (order.getFromStation() == "" || order.getFromStation().length() == 0) {
-            return "from station error!";
+        if (validateTicketNum(order.getTicketNum()) == false) {
+            return false;
         }
 
-        if (order.getToStation() == "" || order.getToStation().length() == 0) {
-            return "To station error!";
+        if (validateTime(order.getStartTime()) == false) {
+            return false;
         }
 
-        if (order.getStartTime() == "" || order.getStartTime().length() == 0
-            ) {
-            //
-            return "Date error!";
+        if (validateStation(order) == false) {
+            return false;
         }
 
-        if (order.getTicketNum() <= 0 || order.getTicketNum() > 8) {
-            return "Ticker number error!";
+        return true;
+
+    }
+
+    private Boolean validateStation(Order order) {
+
+        if (order.getCity() == "" || order.getCity().trim().isEmpty()) {
+            return false;
         }
 
-        Map<String, List<String>> mapList = orderService.getMapByCity(order.getCity());
-
-        List<String> toList = mapList.get(order.getToPath());
-
-        List<String> fromList = mapList.get(order.getFromPath());
-
-        if (toList == null || fromList == null) {
-            return "Path error!";
+        if (order.getFromPath() == "" || order.getFromPath().trim().isEmpty()) {
+            return false;
         }
 
-        if (!toList.contains(order.getToStation()) || !fromList.contains(order.getFromStation())) {
-            return "Station error!";
+        if (order.getToPath() == "" || order.getToPath().trim().isEmpty()) {
+            return false;
         }
 
-        return "";
+        if (order.getFromStation() == "" || order.getFromStation().trim().isEmpty()) {
+            return false;
+        }
 
+        if (order.getToStation() == "" || order.getToStation().trim().isEmpty()) {
+            return false;
+        }
+
+        return true;
+    }
+
+
+    private Boolean validateTime(String _time) {
+
+        if (_time == "" || _time.trim().isEmpty()) {
+            return false;
+        }
+
+        return true;
+    }
+
+    private Boolean validateTicketNum(int num) {
+
+        if (num <= 0 || num > 8) {
+
+            return false;
+
+        }
+
+        return true;
     }
 
     /**

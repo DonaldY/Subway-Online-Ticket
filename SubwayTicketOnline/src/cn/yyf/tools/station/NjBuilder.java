@@ -54,6 +54,16 @@ public class NjBuilder {
             "学则路站,仙林中心站,羊山公园站,南大仙林校区站,经天路站";
         String [] twoLineArr = twoLineStr.split(",");
 
+        /*int [] twoArr = {0, 0, 1, 0, 0, 0, 0, 0, 0
+            , 0, 1, 1, 0, 0, 0, 0, 0, 0, 0, 1, 0
+            , 0, 0, 0, 0, 0};
+
+        for (int i = 0; i < twoArr.length; ++i) {
+
+            twoLine.add(new Station(twoLineArr[i], twoArr[i]));
+
+        }*/
+
         for(String s : twoLineArr){
             twoLine.add(new Station(s));
         }
@@ -69,6 +79,17 @@ public class NjBuilder {
             "南京站,南京林业大学·新庄站,鸡鸣寺站,浮桥站,大行宫站,常府街站,夫子庙站,武定门站,雨花门站,卡子门站,大明路站," +
             "明发广场站,南京南站,宏运大道站,胜太西路站,天元西路站,九龙湖站,诚信大道站,东大九龙湖校区站,秣周东路站";
         String [] threeLineArr = threeLineStr.split(",");
+
+        /*int [] threeArr = {0, 0, 0, 1, 0, 0, 0, 0, 0
+            , 1, 0, 1, 0, 1, 0, 0, 0, 0, 0, 0
+            , 0, 1, 0, 0, 0, 0, 0, 0, 0};
+
+        for (int i = 0; i < threeArr.length; ++i) {
+
+            threeLine.add(new Station(threeLineArr[i], threeArr[i]));
+
+        }*/
+
         for(String s : threeLineArr){
             threeLine.add(new Station(s));
         }
@@ -83,6 +104,16 @@ public class NjBuilder {
         String fourLineStr = "龙江站,草场门站,云南路站,鼓楼站,鸡鸣寺站,九华山站,岗子村站,蒋王庙站,王家湾站,聚宝山站,徐庄站,金马路站" +
             "汇通路站,灵山站,东流站,孟北站,桦墅站,仙林湖站";
         String [] fourLineArr = fourLineStr.split(",");
+
+        /*int [] fourArr = {0, 0, 0, 1, 1, 0, 0, 0, 0, 0, 0, 1
+            , 0, 0, 0, 0, 0, 0};
+
+        for (int i = 0; i < fourArr.length; ++i) {
+
+            fourLine.add(new Station(fourLineArr[i], fourArr[i]));
+
+        }*/
+
         for (String s : fourLineArr) {
             fourLine.add(new Station(s));
         }
@@ -97,9 +128,20 @@ public class NjBuilder {
         String tenLineStr = "雨山路站,文德路站,龙华路站,南京工业大学站,浦口万汇城站,临江站,江心洲站,绿博园站,梦都大街站," +
             "奥体中心站,元通站,中胜站,小行站,安德门站";
         String[] tenLineArr = tenLineStr.split(",");
+
         for(String s : tenLineArr){
             tenLine.add(new Station(s));
         }
+
+        /*int [] tenArr = {0, 0, 0, 0, 0, 0, 0, 0, 0
+            , 0, 1, 0, 0, 1};
+
+        for (int i = 0; i < tenArr.length; ++i) {
+
+            tenLine.add(new Station(tenLineArr[i], tenArr[i]));
+
+        }*/
+
         for(int i = 0;i < tenLine.size();i++){
             if(i<tenLine.size()-1){
                 tenLine.get(i).next = tenLine.get(i + 1);
@@ -110,6 +152,15 @@ public class NjBuilder {
         //////////////////////////////////s1号线////////////////////////////////////////
         String s1LineStr = "南京南站,翠屏山站,河海大学·佛城西路站,吉印大道站,正方中路站,翔宇路北站,翔宇路南站,禄口机场站";
         String[] s1LineArr = s1LineStr.split(",");
+
+        /*int [] s1Arr  = {1, 0, 0, 0, 0, 0, 0, 4};
+
+        for (int i = 0; i < s1Arr.length; ++i) {
+
+            s1Line.add(new Station(s1LineArr[i], s1Arr[i]));
+
+        }*/
+
         for(String s : s1LineArr){
             s1Line.add(new Station(s));
         }
@@ -124,6 +175,17 @@ public class NjBuilder {
         String s8LineStr = "泰山新村站,泰冯路站,高新开发区站,信息工程大学站,卸甲甸站,大厂站,葛塘站,长芦站,化工园站," +
             "六合开发区站,龙池站,雄州站,凤凰山公园站,方州广场站,沈桥站,八百桥站,金牛湖站";
         String[] s8LineArr = s8LineStr.split(",");
+
+        /*int [] s8Arr = {0, 1, 0, 0, 0, 0, 0, 0, 0, 0
+            , 0, 0, 0, 0, 0, 0, 0, 0, 0};
+
+        for (int i = 0; i < s8Arr.length; ++i) {
+
+            s8Line.add(new Station(s8LineArr[i], s8Arr[i]));
+
+        }*/
+
+
         for(String s : s8LineArr){
             s8Line.add(new Station(s));
         }

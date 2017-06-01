@@ -139,15 +139,19 @@ public class UserServlet extends BaseServlet {
 		 * 封装表单数据到user
 		 */
         User formUser = CommonUtils.toBean(req.getParameterMap(), User.class);
+
         /**
 		 * 校验，如果校验失败，保存错误信息，返回到regist.jsp显示
 		 */
+
         Map<String, String> errors = validateRegist(formUser, req.getSession());
+
         if(errors.size() > 0){
             req.setAttribute("form", formUser);
             req.setAttribute("errors", errors);
             return "f:/jsps/user/regist.jsp";
         }
+
 		/**
 		 * 使用service来完成业务
 		 */
