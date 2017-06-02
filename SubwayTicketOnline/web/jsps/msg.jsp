@@ -15,8 +15,10 @@
   <meta name="copyright" content="Donald">
   <meta name="author" content="Donald" >
   <meta name="keywords" content="msg" />
+
   <link href="<c:url value='/css/bootstrap.min.css'/>" rel="stylesheet" type="text/css">
   <link href="<c:url value='/css/msg/msg.css'/>" rel="stylesheet" type="text/css">
+
     <title>消息-地铁</title>
 </head>
 <body>
