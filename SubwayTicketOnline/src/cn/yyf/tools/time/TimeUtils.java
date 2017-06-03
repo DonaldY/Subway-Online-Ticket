@@ -1,6 +1,8 @@
 package cn.yyf.tools.time;
 
+import java.text.DateFormat;
 import java.text.SimpleDateFormat;
+import java.util.Calendar;
 import java.util.Date;
 
 /**
@@ -20,4 +22,35 @@ public class TimeUtils {
     }
 
 
+    public static String getNextDayByTime(String startTime) {
+
+        if (startTime.trim().isEmpty() || startTime == "") {
+            return "";
+        }
+
+        DateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
+
+        try {
+
+            Date next = sdf.parse(startTime);
+
+            Calendar c = Calendar.getInstance();
+
+            c.setTime(next);
+
+            c.add(Calendar.DAY_OF_MONTH, 1);
+
+            next = c.getTime();
+
+            return sdf.format(next);
+
+        } catch (Exception e) {
+
+            e.printStackTrace();
+
+            return "";
+
+        }
+
+    }
 }

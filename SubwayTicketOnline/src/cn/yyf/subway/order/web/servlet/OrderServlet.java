@@ -8,6 +8,7 @@ import cn.yyf.subway.pager.PageBean;
 import cn.yyf.subway.user.domain.User;
 import cn.yyf.tools.station.PathBuilder;
 import cn.yyf.tools.station.Station;
+import cn.yyf.tools.time.TimeUtils;
 import com.sun.org.apache.bcel.internal.generic.IF_ACMPEQ;
 
 import javax.servlet.ServletException;
@@ -28,6 +29,14 @@ public class OrderServlet extends BaseServlet {
 
     private OrderService orderService = new OrderService();
 
+    /**
+     * 确定表单，查询线路
+     * @param req
+     * @param resp
+     * @return
+     * @throws ServletException
+     * @throws IOException
+     */
     public String confirmOrder(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 
         Order formOrder = CommonUtils.toBean(req.getParameterMap(), Order.class);
@@ -74,29 +83,49 @@ public class OrderServlet extends BaseServlet {
         return Double.parseDouble(format.format(price));
     }
 
+    /**
+     * 创建表单
+     * @param req
+     * @param resp
+     * @return
+     * @throws ServletException
+     * @throws IOException
+     */
     public String createOrder(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 
-        Order formOrder = CommonUtils.toBean(req.getParameterMap(), Order.class);
+        Order order = (Order) req.getAttribute("formOrder");
 
-        Boolean bool = validateOrder(formOrder, req.getSession());
+        Boolean bool = validateOrder(order, req.getSession());
 
         if (bool == false) {
             return "f:/jsps/main.jsp";
         }
 
-        System.out.println(formOrder);
+        System.out.println(order);
 
         /**
          * 1. 添加用户id
-         * 2. 设置状态， 0 为 未购买
-         * 3. 设置二维码大小图，序列号，均在购完票后。
+         * 2. 设置状态， 1 为 未购买
+         * 3. 设置订单号
+         * 4. 设置endTime, startTime之前设置了.
+         * 5. 设置订单时间
+         * 6. 设置默认二维码大小图。
+         * 7. 设置二维码大小图，序列号，均在购完票后。
          */
-        formOrder.setUid(req.getSession().getId());
+        order.setUid(req.getSession().getId());
 
-        formOrder.setStatus(0);
+        order.setStatus(1);
 
+        order.setOid(CommonUtils.uuid());
 
+        order.setEndTime(TimeUtils.getNextDayByTime(order.getStartTime()));
 
+        order.setOrderTime(TimeUtils.currentTime());
+
+        //写回数据库
+        this.orderService.createOrder(order);
+
+        req.setAttribute("order", order);
 
         return "f:/jsps/order/desc.jsp";
     }
@@ -148,7 +177,9 @@ public class OrderServlet extends BaseServlet {
     private Boolean validateTime(String _time) {
 
         if (_time == "" || _time.trim().isEmpty()) {
+
             return false;
+
         }
 
         return true;

@@ -14,7 +14,7 @@ import java.util.List;
 /**
  * Created by DonaldY on 2017/5/19.
  */
-public class testStation {
+public class TestStation {
 
     ShortestPath shortestPath;
 

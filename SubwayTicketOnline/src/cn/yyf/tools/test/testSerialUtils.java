@@ -6,7 +6,7 @@ import org.junit.Test;
 /**
  * Created by DonaldY on 2017/5/22.
  */
-public class testSerialUtils {
+public class TestSerialUtils {
 
     @Test
     public void  test() {
