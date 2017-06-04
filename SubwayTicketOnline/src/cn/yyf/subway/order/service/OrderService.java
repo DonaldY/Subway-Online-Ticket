@@ -17,12 +17,6 @@ public class OrderService {
     private OrderDao orderDao = new OrderDao();
 
 
-    public Map<String,List<String>> getMapByCity(String city) {
-
-        return null;
-
-    }
-
     public PageBean<Order> showOrderList(String uid, int currPageNum, int status) {
 
         try {
@@ -80,6 +74,28 @@ public class OrderService {
 
     public void createOrder(Order order) {
 
+        try {
+
+            JdbcUtils.beginTransaction();
+            System.out.println("transaction");
+            this.orderDao.addOrder(order);
+            JdbcUtils.commitTransaction();
+
+        } catch (SQLException e) {
+
+            try {
+
+                JdbcUtils.rollbackTransaction();
+
+            } catch (SQLException e1) {
+
+                e1.printStackTrace();
+
+            }
+
+            throw new RuntimeException("Add order error.");
+
+        }
 
 
     }

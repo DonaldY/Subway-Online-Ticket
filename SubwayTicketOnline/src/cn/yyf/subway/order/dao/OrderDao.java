@@ -145,4 +145,17 @@ public class OrderDao {
         qr.update(sql, status, oid);
 
     }
+
+    public void addOrder(Order order) throws SQLException {
+
+        String sql = "insert into s_order (oid, orderTime, startTime, endTime, city, fromPath, toPath, fromStation, " +
+            "toStation, status, ticketNum, price, totalPrice, uid) values (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
+
+        Object[] params = {order.getOid(), order.getOrderTime(), order.getStartTime(), order.getEndTime(), order
+            .getCity(), order.getFromPath(), order.getToPath(), order.getFromStation(), order.getToStation(), order
+            .getStatus(), order.getTicketNum(), order.getPrice(), order.getTotalPrice(), order.getUid()};
+
+        this.qr.update(sql, params);
+
+    }
 }

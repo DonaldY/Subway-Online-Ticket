@@ -154,49 +154,52 @@
           <img src="<c:url value='/image/order/title-ad.png'/>" />
         </div>
 
-        <div class="order-content">
-          <ul>
-            <li>
-              <label>坐标城市：</label>
-              <strong>${formOrder.city}</strong>
-            </li>
-            <li>
-              <label>出发线路：</label>
-              <strong>${formOrder.fromPath}</strong>
-            </li>
-            <li>
-              <label>出发站点：</label>
-              <strong>${formOrder.fromStation}</strong>
-            </li>
-            <li>
-              <label>目的线路：</label>
-              <strong>${formOrder.toPath}</strong>
-            </li>
-            <li>
-              <label>目的站点：</label>
-              <strong>${formOrder.toStation}</strong>
-            </li>
-            <li>
-              <label>使用时间：</label>
-              <em>${formOrder.startTime}</em>
-            </li>
-            <li class="line">
-              <label>座位：</label>
-              <strong>老、幼、病、残、孕先坐</strong>
-            </li>
-            <li>
-              <label>单价：</label>
-              <span>¥ ${formOrder.price} 　✖ 　${formOrder.ticketNum}</span>
-            </li>
-            <li class="total">
-              <label>总计：</label>
-              <div>¥ ${formOrder.totalPrice}</div>
-            </li>
-          </ul>
-          <div class="order-submit">
-            <a href="" class="sub">确认信息,下单</a>
+        <form action="<c:url value='/OrderServlet?method=createOrder'/>" method="post">
+          <div class="order-content">
+            <ul>
+              <li>
+                <label>坐标城市：</label>
+                <strong>${formOrder.city}</strong>
+              </li>
+              <li>
+                <label>出发线路：</label>
+                <strong>${formOrder.fromPath}</strong>
+              </li>
+              <li>
+                <label>出发站点：</label>
+                <strong>${formOrder.fromStation}</strong>
+              </li>
+              <li>
+                <label>目的线路：</label>
+                <strong>${formOrder.toPath}</strong>
+              </li>
+              <li>
+                <label>目的站点：</label>
+                <strong>${formOrder.toStation}</strong>
+              </li>
+              <li>
+                <label>使用时间：</label>
+                <em>${formOrder.startTime}</em>
+              </li>
+              <li class="line">
+                <label>座位：</label>
+                <strong>老、幼、病、残、孕先坐</strong>
+              </li>
+              <li>
+                <label>单价：</label>
+                <span>¥ ${formOrder.price} 　✖ 　${formOrder.ticketNum}</span>
+              </li>
+              <li class="total">
+                <label>总计：</label>
+                <div>¥ ${formOrder.totalPrice}</div>
+              </li>
+            </ul>
+            <div class="order-submit">
+              <button type="submit" class="sub">确认信息,下单</button>
+            </div>
           </div>
-        </div>
+        </form>
+
 
       </div>
 

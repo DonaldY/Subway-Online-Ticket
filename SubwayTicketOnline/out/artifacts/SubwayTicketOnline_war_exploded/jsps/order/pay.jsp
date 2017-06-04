@@ -10,6 +10,13 @@
 <html>
 
 <head>
+    <meta charset="UTF-8" />
+    <meta name="generator" content="sublime text" />
+    <meta name="copyright" content="Donald">
+    <meta name="author" content="Donald" >
+    <meta name="keywords" content="desc" />
+    <link href="<c:url value='/css/bootstrap.min.css'/>" rel="stylesheet" type="text/css">
+
     <title>地铁-支付</title>
 </head>
 

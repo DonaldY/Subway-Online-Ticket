@@ -1,6 +1,7 @@
 package cn.yyf.tools.time;
 
 import java.text.DateFormat;
+import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import java.util.Date;
@@ -14,6 +15,10 @@ public class TimeUtils {
 
     }
 
+    /**
+     * 获取当前系统的时间
+     * @return String
+     */
     public static String currentTime() {
 
         SimpleDateFormat timeFormat = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
@@ -21,7 +26,13 @@ public class TimeUtils {
         return timeFormat.format(new Date());
     }
 
-
+    /**
+     * 获取后一天的日期
+     *
+     * @param startTime
+     * @return String
+     * @throws ParseException if string can't convert to date
+     */
     public static String getNextDayByTime(String startTime) {
 
         if (startTime.trim().isEmpty() || startTime == "") {
@@ -44,12 +55,11 @@ public class TimeUtils {
 
             return sdf.format(next);
 
-        } catch (Exception e) {
+        } catch (ParseException e) {
 
             e.printStackTrace();
 
             return "";
-
         }
 
     }

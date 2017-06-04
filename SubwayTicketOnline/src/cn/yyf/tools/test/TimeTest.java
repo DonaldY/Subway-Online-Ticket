@@ -2,12 +2,11 @@ package cn.yyf.tools.test;
 
 import org.junit.Test;
 
-import java.sql.Timestamp;
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import java.util.Date;
-import java.util.GregorianCalendar;
+
 
 /**
  * Created by DonaldY on 2017/6/3.

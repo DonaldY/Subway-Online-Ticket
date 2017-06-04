@@ -55,6 +55,9 @@ public class OrderServlet extends BaseServlet {
 
         req.setAttribute("pathList", list);
 
+        //保存到session
+        req.getSession().setAttribute("sessionOrder", formOrder);
+
         return "f:/jsps/order/order.jsp";
     }
 
@@ -93,30 +96,42 @@ public class OrderServlet extends BaseServlet {
      */
     public String createOrder(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 
-        Order order = (Order) req.getAttribute("formOrder");
+        Order order = (Order) req.getSession().getAttribute("sessionOrder");
+
+        User user = (User) req.getSession().getAttribute("sessionUser");
+
+        if (order == null || user == null) {
+
+            return "r:/jsps/main.jsp";
+
+        }
 
         Boolean bool = validateOrder(order, req.getSession());
 
         if (bool == false) {
-            return "f:/jsps/main.jsp";
-        }
 
-        System.out.println(order);
+            return "f:/jsps/main.jsp";
+
+        }
 
         /**
          * 1. 添加用户id
          * 2. 设置状态， 1 为 未购买
          * 3. 设置订单号
-         * 4. 设置endTime, startTime之前设置了.
-         * 5. 设置订单时间
-         * 6. 设置默认二维码大小图。
-         * 7. 设置二维码大小图，序列号，均在购完票后。
+         * 4. 设置Time
+         * 5. 设置endTime, startTime之前设置了.
+         * 6. 设置订单时间
+         * 7. 设置默认二维码大小图。
+         * 8. 生成二维码大小图，序列号，均在购完票后。
          */
-        order.setUid(req.getSession().getId());
+
+        order.setUid(user.getUid());
 
         order.setStatus(1);
 
         order.setOid(CommonUtils.uuid());
+
+        order.setOrderTime(TimeUtils.currentTime());
 
         order.setEndTime(TimeUtils.getNextDayByTime(order.getStartTime()));
 
@@ -127,7 +142,7 @@ public class OrderServlet extends BaseServlet {
 
         req.setAttribute("order", order);
 
-        return "f:/jsps/order/desc.jsp";
+        return "f:/jsps/order/pay.jsp";
     }
 
     private Boolean validateOrder(Order order, HttpSession session) {
@@ -150,23 +165,23 @@ public class OrderServlet extends BaseServlet {
 
     private Boolean validateStation(Order order) {
 
-        if (order.getCity() == "" || order.getCity().trim().isEmpty()) {
+        if (order.getCity() == null || order.getCity().trim().isEmpty()) {
             return false;
         }
 
-        if (order.getFromPath() == "" || order.getFromPath().trim().isEmpty()) {
+        if (order.getFromPath() == null || order.getFromPath().trim().isEmpty()) {
             return false;
         }
 
-        if (order.getToPath() == "" || order.getToPath().trim().isEmpty()) {
+        if (order.getToPath() == null || order.getToPath().trim().isEmpty()) {
             return false;
         }
 
-        if (order.getFromStation() == "" || order.getFromStation().trim().isEmpty()) {
+        if (order.getFromStation() == null || order.getFromStation().trim().isEmpty()) {
             return false;
         }
 
-        if (order.getToStation() == "" || order.getToStation().trim().isEmpty()) {
+        if (order.getToStation() == null || order.getToStation().trim().isEmpty()) {
             return false;
         }
 
@@ -176,7 +191,7 @@ public class OrderServlet extends BaseServlet {
 
     private Boolean validateTime(String _time) {
 
-        if (_time == "" || _time.trim().isEmpty()) {
+        if (_time == null || _time.trim().isEmpty()) {
 
             return false;
 
