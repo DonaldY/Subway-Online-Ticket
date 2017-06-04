@@ -376,5 +376,21 @@ public class OrderServlet extends BaseServlet {
         return "f:/jsps/msg.jsp";
     }
 
+    /**
+     * 支付前准备
+     * @param req
+     * @param resp
+     * @return
+     * @throws ServletException
+     * @throws IOException
+     */
+    public String paymentPre(HttpServletRequest req, HttpServletResponse resp)
+        throws ServletException, IOException {
+
+        req.setAttribute("order", this.orderService.loadOrder(req.getParameter("oid")));
+
+        return "f:/jsps/order/pay.jsp";
+
+    }
 
 }

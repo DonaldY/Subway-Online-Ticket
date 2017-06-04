@@ -29,7 +29,7 @@
   <!-- Login Screen -->
   <div class="login-wrapper">
     <div class="login-container">
-      <a href="#"><img width="100" height="30" src="<c:url value='/image/registeredLOGO.png'/>" /></a>
+      <a href="<c:url value='/jsps/main.jsp'/>"><img width="100" height="30" src="<c:url value='/image/registeredLOGO.png'/>" /></a>
       <form action="<c:url value='/UserServlet'/>" method="post" id="registForm">
         <input type="hidden" name="method" value="regist" />
         <div class="form-group">

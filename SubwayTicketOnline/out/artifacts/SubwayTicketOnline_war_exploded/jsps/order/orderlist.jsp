@@ -220,8 +220,7 @@
                     <span>
                       <p><a href="<c:url value='/OrderServlet?method=loadOrder&oid=${order.oid }' />">查看</a></p>
                       <c:if test="${order.status eq 1 }">
-                        <p><a href="<c:url value='/OrderServlet?method=paymentPre&oid=${order.oid }&btn=pay' />">支付
-                        </a></p>
+                        <p><a href="<c:url value='/OrderServlet?method=paymentPre&oid=${order.oid }&btn=pay' />">支付</a></p>
                         <p><a href="<c:url value='/OrderServlet?method=loadOrder&oid=${order.oid }&btn=cancel'/>">取消</a></p>
                       </c:if>
                     </span>
