@@ -97,7 +97,7 @@ public class UserService {
      */
     public boolean ajaxValidateEmail(String email){
         try{
-            return userDao.ajaxValidateEmail(email);
+            return this.userDao.ajaxValidateEmail(email);
         }catch(SQLException e){
             throw new RuntimeException(e);
         }

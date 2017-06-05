@@ -36,8 +36,10 @@ $(function(){
  * Email校验
  */
 function validateEmail(){
+
     var id = "email";
     var value = $("#" + id).val();  //获取输入框内容
+
     if(!value){
         //email为空 显红色
         showStatus(id, 2);
@@ -48,6 +50,7 @@ function validateEmail(){
         return false;
     }
 
+
     $.ajax({
         url:"/SubwayTicketOnline/UserServlet",
         data:{method:"ajaxValidateEmail", email:value},
@@ -56,13 +59,16 @@ function validateEmail(){
         async:false,
         cache:false,
         success:function(result){
-            if(!result){
+
+            if(result == false){
                 //email被注册 显红色
                 showStatus(id, 2);
                 return false;
             }
+
         }
     });
+
     //email正确 显绿色
     showStatus(id, 1);
     return true;

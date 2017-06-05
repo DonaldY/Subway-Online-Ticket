@@ -155,7 +155,7 @@ public class UserServlet extends BaseServlet {
 		/**
 		 * 使用service来完成业务
 		 */
-        userService.regist(formUser);
+        this.userService.regist(formUser);
 		/**
 		 * 保存成功信息,转发到msg.jsp显示
 		 */
@@ -183,7 +183,7 @@ public class UserServlet extends BaseServlet {
             errors.put("email", "Email不能为空!");
         }else if(!email.matches("^([a-zA-Z0-9_-])+@([a-zA-Z0-9_-])+((\\.[a-zA-Z0-9_-]{2,3}){1,2})$")){
             errors.put("email", "Email格式不对！");
-        }else if(!userService.ajaxValidateEmail(email)){
+        }else if(!this.userService.ajaxValidateEmail(email)){
             errors.put("email", "Email已被注册");
         }
 
@@ -219,7 +219,8 @@ public class UserServlet extends BaseServlet {
      */
     public String ajaxValidateEmail(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException{
         String email = req.getParameter("email");
-        boolean b = userService.ajaxValidateEmail(email);
+        boolean b = this.userService.ajaxValidateEmail(email);
+        System.out.println(b);
         resp.getWriter().print(b);
         return null;
     }
