@@ -220,7 +220,6 @@ public class UserServlet extends BaseServlet {
     public String ajaxValidateEmail(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException{
         String email = req.getParameter("email");
         boolean b = this.userService.ajaxValidateEmail(email);
-        System.out.println(b);
         resp.getWriter().print(b);
         return null;
     }

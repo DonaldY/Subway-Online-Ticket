@@ -77,7 +77,6 @@ public class OrderService {
         try {
 
             JdbcUtils.beginTransaction();
-            System.out.println("transaction");
             this.orderDao.addOrder(order);
             JdbcUtils.commitTransaction();
 

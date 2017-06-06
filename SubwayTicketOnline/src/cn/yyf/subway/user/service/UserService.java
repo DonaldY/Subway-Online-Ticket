@@ -22,7 +22,7 @@ public class UserService {
 
     public User login(User user){
         try {
-            return userDao.findByNameAndPwd(user.getUsername(), user.getUserpasswd());
+            return this.userDao.findByNameAndPwd(user.getUsername(), user.getUserpasswd());
         } catch (SQLException e) {
             throw new RuntimeException(e);
         }
@@ -43,10 +43,8 @@ public class UserService {
         user.setStatus(false);
         user.setActivationCode(CommonUtils.uuid() + CommonUtils.uuid());
 
-        System.out.println(user);
-
         try{
-            userDao.add(user);
+            this.userDao.add(user);
         }catch(SQLException e){
             throw new RuntimeException(e);
         }
