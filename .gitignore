@@ -5,7 +5,6 @@ Desktop.ini
 
 # IDEA:
 *.jar
-*.sql
 *.iml
 *.properties
 .idea
