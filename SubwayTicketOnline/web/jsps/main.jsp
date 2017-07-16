@@ -94,7 +94,7 @@
 
                 <div class="location-button">
                     <div class="input-group ">
-                      <div class="input-group-btn" >
+                      <div id="button-dropdown-city" class="input-group-btn"  >
                         <button type="button" class="btn btn-default
                                                          dropdown-toggle" data-toggle="dropdown">
                           <i class="glyphicon glyphicon-tree-deciduous"></i>
@@ -117,7 +117,7 @@
 
                 <div class="location-button">
                   <div class="input-group input-group-ticket">
-                    <div class="input-group-btn" >
+                    <div id="button-dropdown-ticket" class="input-group-btn" >
                       <button type="button" class="btn btn-default
                                                        dropdown-toggle" data-toggle="dropdown">
                         <i class="glyphicon glyphicon-th"></i>
@@ -145,11 +145,8 @@
 
                 <div class="row-operate">
                   <div class="input-from">
-
-
-
                     <div class="input-group ">
-                      <div class="input-group-btn" >
+                      <div id="button-dropdown-fromPath" class="input-group-btn" >
                         <button type="button" class="btn btn-default
                                                              dropdown-toggle" data-toggle="dropdown">
                           <i class="glyphicon glyphicon-map-marker"></i>
@@ -166,14 +163,14 @@
                     </div>
 
                     <div class="input-group">
-                      <div class="input-group-btn" >
+                      <div id="button-dropdown-fromStation" class="input-group-btn" >
                         <button type="button" class="btn btn-default
                                                              dropdown-toggle" data-toggle="dropdown">
                           <i class="glyphicon glyphicon-map-marker"></i>
                           <span class="caret"></span>
                         </button>
                         <ul class="dropdown-menu" id="fromStation">
-                          <li value="请选择出发站点">请选择出发站点</li>
+                          <li value="请选择出发站点">请选择出发线路</li>
                         </ul>
                       </div>
                       <input type="text" class="yang-form-control inputClass"   placeholder="出发站点" value=""
@@ -194,15 +191,14 @@
 
                   <div class="input-to">
 
-
                     <div class="input-group ">
-                      <div class="input-group-btn" >
+                      <div id="button-dropdown-toPath" class="input-group-btn" >
                         <button type="button" class="btn btn-default  dropdown-toggle" data-toggle="dropdown">
                           <i class="glyphicon glyphicon-map-marker"></i>
                           <span class="caret"></span>
                         </button>
                         <ul class="dropdown-menu" id="toPath">
-                          <li value="请选择到达线路">请选择到达线路</li>
+                          <li value="请选择到达线路">请选择城市</li>
                         </ul>
                       </div>
                       <input type="text" class="yang-form-control inputClass"   placeholder="到达线路" value="" id="inputToPath"
@@ -211,13 +207,13 @@
                     </div>
 
                     <div class="input-group ">
-                      <div class="input-group-btn" >
+                      <div id="button-dropdown-toStation" class="input-group-btn" >
                         <button type="button" class="btn btn-default  dropdown-toggle" data-toggle="dropdown">
                           <i class="glyphicon glyphicon-map-marker"></i>
                           <span class="caret"></span>
                         </button>
                         <ul class="dropdown-menu" id="toStation">
-                          <li value="请选择到达站点">请选择到达站点</li>
+                          <li value="请选择到达站点">请选择到达线路</li>
                         </ul>
                       </div>
                       <input type="text" class="yang-form-control inputClass"   placeholder="到达站点"  value="" id="inputToStation"

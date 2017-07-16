@@ -83,9 +83,9 @@
         <div class="col-md-3">
           <p class="lead">Subway-Order-List</p>
           <div class="list-group">
-            <a href="#" class="list-group-item active">Category 1</a>
-            <a href="#" class="list-group-item">Category 2</a>
-            <a href="#" class="list-group-item">Category 3</a>
+            <a href="#" class="list-group-item active">全部订单</a>
+            <a href="#" class="list-group-item">城市地铁图</a>
+            <a href="#" class="list-group-item">猜猜猜</a>
           </div>
         </div>
 
