@@ -1,6 +1,4 @@
 # 地铁网络售票系统<br>
-## 　　**仅供学习使用。未经授权不得用于商业用途和各种大作业。**
-
 ### 详见UI，见：http://blog.csdn.net/fanfan4569/article/details/72878671
 ### 先告一段落( ⊙ o ⊙ )啊！。。。
 ### Have fun！
